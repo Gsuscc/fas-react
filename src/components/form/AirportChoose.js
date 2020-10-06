@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import flightFetch from "../dataHandler/dataHandler";
+import React, { useState, useEffect, useCallback } from "react";
+import flightFetch from "../../dataHandler/dataHandler";
 
 const AirportChoose = React.memo((props) => {
   const [airports, setAirports] = useState([]);
   const [text, setText] = useState("");
-  const inputRef = useRef();
+  const inputRef = props.reference;
 
   const fillOptions = useCallback((data) => {
     setAirports(data.values);
@@ -24,17 +24,17 @@ const AirportChoose = React.memo((props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [text, fillOptions]);
+  }, [text, fillOptions, inputRef]);
 
   return (
     <React.Fragment>
       <input
         ref={inputRef}
-        list="Airport"
+        list={props.inputId}
         onChange={(event) => setText(event.target.value)}
         value={text}
       />
-      <datalist id="Airport">
+      <datalist id={props.inputId}>
         {airports.map((airport) => {
           return (
             <option value={airport.code} key={airport.code}>
