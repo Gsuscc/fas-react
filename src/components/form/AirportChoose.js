@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import flightFetch from "../../dataHandler/dataHandler";
+import ErrorModal from "../ui/ErrorModal";
 
 const AirportChoose = React.memo((props) => {
   const [airports, setAirports] = useState([]);
   const [text, setText] = useState("");
+  const [error, setError] = useState(null);
   const inputRef = props.reference;
 
   const fillOptions = useCallback((data) => {
@@ -15,7 +17,7 @@ const AirportChoose = React.memo((props) => {
       if (text === inputRef.current.value) {
         if (inputRef.current.value.length >= 2) {
           const queryUrl = `http://localhost:8080/airport/query?substring=${text}`;
-          flightFetch(queryUrl, fillOptions);
+          flightFetch(queryUrl, fillOptions, (error) => setError(error));
         } else {
           setAirports([]);
         }
@@ -26,8 +28,13 @@ const AirportChoose = React.memo((props) => {
     };
   }, [text, fillOptions, inputRef]);
 
+  const clear = useCallback(() => {
+    setError(null);
+  }, []);
+
   return (
     <React.Fragment>
+      {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
       <input
         ref={inputRef}
         list={props.inputId}
