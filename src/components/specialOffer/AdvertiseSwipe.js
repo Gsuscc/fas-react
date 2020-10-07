@@ -38,7 +38,7 @@ const AdvertiseSwipe = () => {
       {loading ? null : (
         <div className="swiper-container">
           <Swiper
-            spaceBetween={30}
+            spaceBetween={60}
             slidesPerView={3}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}

@@ -10,14 +10,7 @@
 .offerImg {
   /* width: fit-content; */
   width: 300px;
-  height: 200px;
-}
-
-/* Bottom left text */
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
+  height: 220px;
 }
 
 /* Top left text */
@@ -25,26 +18,27 @@
   position: absolute;
   top: 8px;
   left: 16px;
+  font-weight: 900;
+  font-size: 25px;
+  -webkit-text-stroke: 1px rebeccapurple;
 }
-
-/* Top right text */
-.top-right {
+.centered {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 50%;
+  left: 50%;
+  width: 165px;
+  transform: translate(-50%, -50%);
+  font-weight: 900;
+  font-size: 45px;
+  -webkit-text-stroke: 1px rebeccapurple;
 }
 
 /* Bottom right text */
 .bottom-right {
   position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 1px;
+  right: 15px;
+  font-weight: 900;
+  font-size: 20px;
+  -webkit-text-stroke: 1px rebeccapurple;
 }

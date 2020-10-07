@@ -7,9 +7,9 @@ export default function Card(props) {
   return (
     <div className="offerCard">
       <img src={pictureUrl} className="offerImg" alt={city}></img>
-      <p className="top-right">{city}</p>
-      <p className="bottom-right">{country}</p>
-      <p className="top-left">{price}</p>
+      <div className="top-left">{city}</div>
+      <div className="bottom-right">{country}</div>
+      <div className="centered">$ {price}</div>
     </div>
   );
 }
