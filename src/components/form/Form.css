@@ -18,3 +18,16 @@
   grid-column-start: 1;
   grid-column-end: span 2;
 }
+
+.MuiPickersCalendarHeader-transitionContainer {
+  overflow: unset !important;
+}
+
+.MuiPickersSlideTransition-transitionContainer > * {
+  padding: 10px;
+}
+.MuiPickersBasePicker-pickerView {
+  min-width: 323px !important;
+  max-width: 323px !important;
+  padding-bottom: 15px !important;
+}
