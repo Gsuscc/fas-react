@@ -3,6 +3,7 @@ import AirportChoose from "./AirportChoose";
 import DatePicker from "./DatePicker";
 import "./Form.css";
 import Person from "./Person";
+import Switch from "./Switch";
 
 export default function Form() {
   const fromAirport = useRef();
@@ -19,6 +20,7 @@ export default function Form() {
       <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
       <Person />
+      <Switch />
       <button className="search-button">Search</button>
     </div>
   );
