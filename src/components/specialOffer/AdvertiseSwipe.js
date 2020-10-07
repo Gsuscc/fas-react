@@ -23,9 +23,16 @@ const AdvertiseSwipe = () => {
   }, [cards]);
 
   useEffect(() => {
-    const queryUrl = `http://localhost:8080/advisor?country=faszrt`;
-    setLoading(true);
-    flightFetch(queryUrl, fillCards, (error) => setError(error));
+    flightFetch(
+      "http://ip-api.com/json",
+      (data) => {
+        console.log(data.country);
+        const queryUrl = `http://localhost:8080/advisor?country=${data.country}`;
+        setLoading(true);
+        flightFetch(queryUrl, fillCards, (error) => setError(error));
+      },
+      (error) => setError(error)
+    );
   }, [fillCards]);
 
   const clear = useCallback(() => {
