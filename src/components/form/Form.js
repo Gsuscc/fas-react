@@ -6,7 +6,7 @@ export default function Form() {
   const toAirport = useRef();
 
   return (
-    <div>
+    <div className="search-area">
       <AirportChoose inputId="airportOne" reference={fromAirport} />
       <AirportChoose inputId="airportTwo" reference={toAirport} />
     </div>
