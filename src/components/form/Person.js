@@ -26,6 +26,7 @@ export default function Person() {
 
   return (
     <div>
+      <img src="/adult.png" alt="passenger" id="adult-icon"></img>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-helper-label">Person</InputLabel>
         <Select

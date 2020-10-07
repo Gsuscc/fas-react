@@ -75,3 +75,8 @@ ul.topnav li.right {
 .page-title-text {
   color: #ace391 !important;
 }
+#adult-icon {
+  width: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+}

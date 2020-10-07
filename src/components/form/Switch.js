@@ -4,6 +4,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { withStyles } from "@material-ui/core/styles";
+import "./switcher.css";
 
 const CustomSwitch = withStyles((theme) => ({
   root: {
