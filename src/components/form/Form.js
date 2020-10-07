@@ -7,8 +7,12 @@ export default function Form() {
 
   return (
     <div className="search-area">
-      <AirportChoose inputId="airportOne" reference={fromAirport} />
-      <AirportChoose inputId="airportTwo" reference={toAirport} />
+      <AirportChoose
+        inputId="airportOne"
+        label="From:"
+        reference={fromAirport}
+      />
+      <AirportChoose inputId="airportTwo" label="To:" reference={toAirport} />
     </div>
   );
 }
