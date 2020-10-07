@@ -76,11 +76,13 @@ ul.topnav li.right {
   color: #ace391 !important;
 }
 #adult-icon {
-  width: 20px;
-  margin-top: 15px;
+  width: 26px;
+  margin-top: -6px;
   margin-right: 5px;
 }
-#person-select-label {
+#passenger-select-label {
   text-align: center;
   width: 90px;
+  font-family: pageTitle;
+  font-size: 21px;
 }

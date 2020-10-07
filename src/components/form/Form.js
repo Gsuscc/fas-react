@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import AirportChoose from "./AirportChoose";
 import DatePicker from "./DatePicker";
 import "./Form.css";
-import Person from "./Person";
+import Passengers from "./Passengers";
 import Switch from "./Switch";
 import Button from "@material-ui/core/Button";
 
@@ -20,7 +20,7 @@ export default function Form() {
       <AirportChoose inputId="airportTwo" label="To: " reference={toAirport} />
       <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
-      <Person />
+      <Passengers />
       <Switch />
       <Button className="search-button" variant="contained" color="primary">
         Search
