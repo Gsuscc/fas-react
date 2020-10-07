@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import DatePicker from "./DatePicker";
 import "./Form.css";
-import Person from "./Person";
+import Passengers from "./Passengers";
 import Switch from "./Switch";
 import AutoCompleter from "./AutoCompleter";
+import Button from "@material-ui/core/Button";
 
 export default function Form() {
   const [airportFrom, setAirportFrom] = useState();
@@ -23,9 +24,11 @@ export default function Form() {
       />
       <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
-      <Person />
+      <Passengers />
       <Switch />
-      <button className="search-button">Search</button>
+      <Button className="search-button" variant="contained" color="primary">
+        Search
+      </Button>
     </div>
   );
 }
