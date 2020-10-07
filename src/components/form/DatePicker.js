@@ -20,7 +20,7 @@ export default function DatePicker(props) {
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
-          format="dd/mm/yyyy"
+          format="dd/MM/yyyy"
           margin="normal"
           id="date-picker-inline"
           label={props.label}
