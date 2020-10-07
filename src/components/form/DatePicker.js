@@ -10,6 +10,7 @@ import {
 export default function DatePicker(props) {
   const selectedDate = props.value;
   const setSelectedDate = props.setValue;
+  const disabled = props.disabled;
 
   const handleDateChange = (date) => {
     setSelectedDate(date);

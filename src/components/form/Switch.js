@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -58,8 +58,9 @@ const CustomSwitch = withStyles((theme) => ({
   );
 });
 
-export default function FormControlLabelPosition() {
-  const [checked, setChecked] = useState(true);
+export default function FormControlLabelPosition(props) {
+  const checked = props.value;
+  const setChecked = props.setValue;
   const handleChange = (e) => {
     setChecked(!checked);
   };

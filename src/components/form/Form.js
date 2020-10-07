@@ -5,44 +5,66 @@ import Passengers from "./Passengers";
 import Switch from "./Switch";
 import AutoCompleter from "./AutoCompleter";
 import Button from "@material-ui/core/Button";
-import { SearchState } from "../../context/SearchContext";
+import { GeneralState } from "../../context/SearchGeneral";
 
 export default function Form() {
-  const { result, general, filter } = useContext(SearchState);
+  const { general } = useContext(GeneralState);
   const [
-    fromCode,
-    setFromCode,
-    toCode,
-    setToCode,
+    fromAirport,
+    setFromAirport,
+    toAirport,
+    setToAirport,
     tripDate,
     setTripDate,
     returnDate,
     setReturnDate,
     person,
     setPerson,
+    isReturn,
+    setIsReturn,
   ] = general;
+
+  const submitHandler = () => {
+    console.log(fromAirport.code);
+    console.log(toAirport.code);
+    console.log(tripDate);
+    console.log(returnDate);
+    console.log(person);
+    console.log(isReturn);
+  };
 
   return (
     <div className="search-area">
       <AutoCompleter
         inputId="airportOne"
-        value={fromCode}
-        setValue={setFromCode}
+        label="From (city or airport)"
+        value={fromAirport}
+        setValue={setFromAirport}
       />
-      <AutoCompleter inputId="airportTwo" value={toCode} setValue={setToCode} />
+      <AutoCompleter
+        inputId="airportTwo"
+        label="To (city or airport)"
+        value={toAirport}
+        setValue={setToAirport}
+      />
       <DatePicker
-        label="Departure Date"
+        label="Departure date"
         value={tripDate}
         setValue={setTripDate}
       />
       <DatePicker
-        label="Arrival Date"
+        label="Return date"
         value={returnDate}
         setValue={setReturnDate}
       />
       <Passengers value={person} setValue={setPerson} />
-      <Switch />
-      <Button className="search-button" variant="contained" color="primary">
+      <Switch value={isReturn} setValue={setIsReturn} />
+      <Button
+        className="search-button"
+        variant="contained"
+        color="primary"
+        onClick={submitHandler}
+      >
         Search
       </Button>
     </div>

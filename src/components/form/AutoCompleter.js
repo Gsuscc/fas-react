@@ -35,6 +35,7 @@ export default function Autocompleter(props) {
   const value = props.value;
   const setValue = props.setValue;
   const componentID = props.inputId;
+  const label = props.label;
   const [loading, setLoading] = useState(false);
 
   const fillOptions = useCallback((data) => {
@@ -91,7 +92,7 @@ export default function Autocompleter(props) {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Choose an Airport"
+            label={label}
             variant="standard"
             inputProps={{
               ...params.inputProps,
