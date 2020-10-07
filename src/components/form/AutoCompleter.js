@@ -79,6 +79,7 @@ export default function Autocompleter(props) {
         onInputChange={(event, value) => setText(value)}
         onChange={(event, value) => setValue(value)}
         inputValue={text}
+        getOptionSelected={(option, value) => option.code === value.code}
         autoHighlight
         getOptionLabel={(option) => option.label}
         renderOption={(option) => (

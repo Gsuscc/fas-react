@@ -56,7 +56,7 @@ const AdvertiseSwipe = () => {
           >
             {cards.map((card) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={card.linkUrl}>
                   <Card card={card} />;
                 </SwiperSlide>
               );

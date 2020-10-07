@@ -3,8 +3,8 @@ import React, { createContext, useState } from "react";
 export const GeneralState = createContext();
 
 export const GeneralContext = (props) => {
-  const [fromAirport, setFromAirport] = useState();
-  const [toAirport, setToAirport] = useState();
+  const [fromAirport, setFromAirport] = useState(null);
+  const [toAirport, setToAirport] = useState(null);
   const [tripDate, setTripDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
   const [person, setPerson] = useState(1);

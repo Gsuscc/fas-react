@@ -25,10 +25,18 @@ export default function Form() {
   ] = general;
 
   const submitHandler = () => {
+    const queryUrl = `http://localhost:8080/flight/query?fromCode=${
+      fromAirport.code
+    }&toCode=${toAirport.code}&tripDate=${tripDate
+      .toISOString()
+      .substr(0, 10)}${
+      isReturn ? "&returnDate=" + returnDate.toISOString().substr(0, 10) : null
+    }&person=${person}`;
+    console.log(queryUrl);
     console.log(fromAirport.code);
     console.log(toAirport.code);
-    console.log(tripDate);
-    console.log(returnDate);
+    console.log(tripDate.toISOString().substr(0, 10));
+    console.log(returnDate.toISOString().substr(0, 10));
     console.log(person);
     console.log(isReturn);
   };
