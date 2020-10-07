@@ -1,25 +1,32 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper";
 import Card from "./Card";
 import "swiper/swiper.scss";
 import flightFetch from "../../dataHandler/dataHandler";
 import ErrorModal from "../ui/ErrorModal";
+import "./AdvertiseSwipe.css";
 
 const AdvertiseSwipe = () => {
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const fillOptions = useCallback((data) => {
+  SwiperCore.use([Autoplay]);
+
+  const fillCards = useCallback((data) => {
     setCards(data.values);
-    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (cards) setLoading(false);
+  }, [cards]);
 
   useEffect(() => {
     const queryUrl = `http://localhost:8080/advisor?country=faszrt`;
     setLoading(true);
-    flightFetch(queryUrl, fillOptions, (error) => setError(error));
-  });
+    flightFetch(queryUrl, fillCards, (error) => setError(error));
+  }, [fillCards]);
 
   const clear = useCallback(() => {
     setError(null);
@@ -28,17 +35,29 @@ const AdvertiseSwipe = () => {
   return (
     <React.Fragment>
       {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
-
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        {cards.map((card) => {
-          return <Card />;
-        })}
-      </Swiper>
+      {loading ? null : (
+        <div className="swiper-container">
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+          >
+            {cards.map((card) => {
+              return (
+                <SwiperSlide>
+                  <Card card={card} />;
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      )}
     </React.Fragment>
   );
 };

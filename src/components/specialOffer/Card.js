@@ -1,19 +1,15 @@
 import React from "react";
+import "./Card.css";
 
 export default function Card(props) {
   console.log(props);
+  const { pictureUrl, city, country, price } = props.card;
   return (
-    <SwiperSlide>
-      <div className="offerCard">
-        <img
-          src={props.offer.pictureUrl}
-          className="offerImg"
-          alt={props.offer.ctiy}
-        ></img>
-        <p>{props.offer.city}</p>
-        <p>{props.offer.country}</p>
-        <p>{props.offer.price}</p>
-      </div>
-    </SwiperSlide>
+    <div className="offerCard">
+      <img src={pictureUrl} className="offerImg" alt={city}></img>
+      <p className="top-right">{city}</p>
+      <p className="bottom-right">{country}</p>
+      <p className="top-left">{price}</p>
+    </div>
   );
 }
