@@ -35,9 +35,8 @@ const AirportChoose = React.memo((props) => {
   return (
     <React.Fragment>
       {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
-      <label for={props.inputId}>{props.label}</label>
+      <label htmlFor={props.inputId}>{props.label}</label>
       <input
-        id={props.inputId}
         ref={inputRef}
         list={props.inputId}
         onChange={(event) => setText(event.target.value)}
