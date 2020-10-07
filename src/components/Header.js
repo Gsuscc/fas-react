@@ -2,8 +2,15 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div>
-      <h1>szia bazdmeg, kutyáidat sétáltatod ilyen felszerelésben?</h1>
-    </div>
+    <ul className="topnav">
+      <li>
+        <a className="site-logo" href="/">
+          <img src="/plane.png" alt="plane" className="plane"></img>
+        </a>
+      </li>
+      <li className="right">
+        <a href="#about">About</a>
+      </li>
+    </ul>
   );
 }
