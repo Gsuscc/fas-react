@@ -4,6 +4,7 @@ import DatePicker from "./DatePicker";
 import "./Form.css";
 import Person from "./Person";
 import Switch from "./Switch";
+import Button from "@material-ui/core/Button";
 
 export default function Form() {
   const fromAirport = useRef();
@@ -21,7 +22,9 @@ export default function Form() {
       <DatePicker label="Arrival Date" />
       <Person />
       <Switch />
-      <button className="search-button">Search</button>
+      <Button className="search-button" variant="contained" color="primary">
+        Search
+      </Button>
     </div>
   );
 }
