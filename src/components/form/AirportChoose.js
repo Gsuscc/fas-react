@@ -33,7 +33,7 @@ const AirportChoose = React.memo((props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <div>
       {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
       <label htmlFor={props.inputId}>{props.label}</label>
       <input
@@ -51,7 +51,7 @@ const AirportChoose = React.memo((props) => {
           );
         })}
       </datalist>
-    </React.Fragment>
+    </div>
   );
 });
 

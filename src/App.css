@@ -75,14 +75,3 @@ ul.topnav li.right {
 .page-title-text {
   color: #ace391 !important;
 }
-
-.search-area {
-  width: 700px;
-  height: 300px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 1px 1px 7px black;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 125px;
-}

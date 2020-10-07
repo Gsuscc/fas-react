@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import AirportChoose from "./AirportChoose";
 import DatePicker from "./DatePicker";
+import "./Form.css";
+import Person from "./Person";
 
 export default function Form() {
   const fromAirport = useRef();
@@ -16,6 +18,7 @@ export default function Form() {
       <AirportChoose inputId="airportTwo" label="To: " reference={toAirport} />
       <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
+      <Person />
       <button className="search-button">Search</button>
     </div>
   );
