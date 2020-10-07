@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "./form/Form";
-import Advertisement from "./Advertisement";
+import Advertisement from "./specialOffer/Advertisement";
 
 export default function Main() {
   return (
