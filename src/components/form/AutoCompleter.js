@@ -84,7 +84,7 @@ export default function Autocompleter(props) {
         getOptionLabel={(option) => option.label}
         renderOption={(option) => (
           <React.Fragment>
-            <span>{countryToFlag(option.code)}</span>
+            <span>{countryToFlag(option.countryCode)}</span>
             {option.label}
           </React.Fragment>
         )}
