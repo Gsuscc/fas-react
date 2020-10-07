@@ -51,11 +51,13 @@ export default function Form() {
         label="Departure date"
         value={tripDate}
         setValue={setTripDate}
+        disabled={false}
       />
       <DatePicker
         label="Return date"
         value={returnDate}
         setValue={setReturnDate}
+        disabled={!isReturn}
       />
       <Passengers value={person} setValue={setPerson} />
       <Switch value={isReturn} setValue={setIsReturn} />

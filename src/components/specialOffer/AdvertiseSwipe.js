@@ -26,7 +26,6 @@ const AdvertiseSwipe = () => {
     flightFetch(
       "http://ip-api.com/json",
       (data) => {
-        console.log(data.country);
         const queryUrl = `http://localhost:8080/advisor?country=${data.country}`;
         setLoading(true);
         flightFetch(queryUrl, fillCards, (error) => setError(error));
@@ -47,8 +46,8 @@ const AdvertiseSwipe = () => {
           <Swiper
             spaceBetween={60}
             slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
             loop={true}
             autoplay={{
               delay: 4000,

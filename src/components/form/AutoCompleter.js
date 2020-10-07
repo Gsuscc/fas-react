@@ -62,8 +62,6 @@ export default function Autocompleter(props) {
     setError(null);
   }, []);
 
-  console.log(loading);
-
   return (
     <React.Fragment>
       {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
