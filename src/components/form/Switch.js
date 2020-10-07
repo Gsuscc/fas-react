@@ -4,30 +4,58 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { withStyles } from "@material-ui/core/styles";
-import { purple } from "@material-ui/core/colors";
 
-const CustomSwitch = withStyles({
+const CustomSwitch = withStyles((theme) => ({
   root: {
-    width: 100,
-    height: 25,
+    width: 105,
+    height: 26,
     padding: 0,
+    margin: theme.spacing(3),
   },
   switchBase: {
     padding: 1,
     "&$checked": {
-      transform: "translateX(75px)",
+      transform: "translateX(80px)",
+      color: "white",
+      "& + $track": {
+        backgroundColor: "#3e004a",
+        opacity: 1,
+        border: "none",
+      },
     },
-    color: purple[300],
-    "&$checked": {
-      color: purple[500],
-    },
-    "&$checked + $track": {
-      backgroundColor: purple[500],
+    "&$focusVisible $thumb": {
+      color: "#ace391",
+      border: "1px solid #fff",
     },
   },
+  thumb: {
+    width: 24,
+    height: 24,
+  },
+  track: {
+    borderRadius: 26 / 2,
+    backgroundColor: "#ace391",
+    opacity: 1,
+    transition: theme.transitions.create(["background-color", "border"]),
+  },
   checked: {},
-  track: {},
-})(Switch);
+  focusVisible: {},
+}))(({ classes, ...props }) => {
+  return (
+    <Switch
+      focusVisibleClassName={classes.focusVisible}
+      disableRipple
+      classes={{
+        root: classes.root,
+        switchBase: classes.switchBase,
+        thumb: classes.thumb,
+        track: classes.track,
+        checked: classes.checked,
+      }}
+      {...props}
+    />
+  );
+});
 
 export default function FormControlLabelPosition() {
   const [checked, setChecked] = useState(true);
@@ -41,7 +69,7 @@ export default function FormControlLabelPosition() {
           className="switch"
           value="top"
           control={<CustomSwitch checked={checked} onChange={handleChange} />}
-          label="Return"
+          label={checked ? "Return" : "One-Way"}
           labelPlacement="top"
         />
       </FormGroup>
