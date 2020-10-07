@@ -14,8 +14,9 @@ export default function Form() {
         reference={fromAirport}
       />
       <AirportChoose inputId="airportTwo" label="To: " reference={toAirport} />
-      <DatePicker label="Deaprture Date" />
+      <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
+      <button className="search-button">Search</button>
     </div>
   );
 }
