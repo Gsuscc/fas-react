@@ -22,16 +22,17 @@
   color: #61dafb;
 }
 
+@font-face {
+  font-family: pageTitle;
+  src: url(/Lobster_1.3.otf);
+}
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #3e004a;
-}
-
-ul.topnav li {
-  float: left;
 }
 
 ul.topnav li a {
@@ -55,4 +56,18 @@ ul.topnav li.right {
 }
 .plane {
   max-width: 177px;
+  float: left;
+}
+
+.page-title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin: auto;
+  padding-top: 33px;
+  font-family: pageTitle;
+  font-size: 54px;
+}
+
+.page-title-text {
 }
