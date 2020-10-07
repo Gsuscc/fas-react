@@ -1,22 +1,26 @@
-import React, { useRef } from "react";
-import AirportChoose from "./AirportChoose";
+import React, { useState } from "react";
 import DatePicker from "./DatePicker";
 import "./Form.css";
 import Person from "./Person";
 import Switch from "./Switch";
+import AutoCompleter from "./AutoCompleter";
 
 export default function Form() {
-  const fromAirport = useRef();
-  const toAirport = useRef();
+  const [airportFrom, setAirportFrom] = useState();
+  const [airportTo, setAirportTo] = useState();
 
   return (
     <div className="search-area">
-      <AirportChoose
+      <AutoCompleter
         inputId="airportOne"
-        label="From: "
-        reference={fromAirport}
+        value={airportFrom}
+        setValue={setAirportFrom}
       />
-      <AirportChoose inputId="airportTwo" label="To: " reference={toAirport} />
+      <AutoCompleter
+        inputId="airportTwo"
+        value={airportTo}
+        setValue={setAirportTo}
+      />
       <DatePicker label="Departure Date" />
       <DatePicker label="Arrival Date" />
       <Person />
