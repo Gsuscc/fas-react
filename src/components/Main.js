@@ -1,12 +1,12 @@
 import React from "react";
 import Form from "./form/Form";
-import Advertisement from "./specialOffer/Advertisement";
+import AdvertiseSwipe from "./specialOffer/AdvertiseSwipe";
 
 export default function Main() {
   return (
     <div>
       <Form />
-      <Advertisement />
+      <AdvertiseSwipe />
     </div>
   );
 }
