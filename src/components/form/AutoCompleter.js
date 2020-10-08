@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 import flightFetch from "../../dataHandler/dataHandler";
-import ErrorModal from "../ui/ErrorModal";
+import { ErrorState } from "../../context/ErrorContext";
 
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
@@ -31,7 +31,7 @@ export default function Autocompleter(props) {
   const classes = useStyles();
   const [airports, setAirports] = useState([]);
   const [text, setText] = useState("");
-  const [error, setError] = useState(null);
+  const { setError } = useContext(ErrorState);
   const value = props.value;
   const setValue = props.setValue;
   const componentID = props.inputId;
@@ -56,15 +56,10 @@ export default function Autocompleter(props) {
     return () => {
       clearTimeout(timer);
     };
-  }, [text, fillOptions]);
-
-  const clear = useCallback(() => {
-    setError(null);
-  }, []);
+  }, [text, fillOptions, setError]);
 
   return (
     <React.Fragment>
-      {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
       <Autocomplete
         id={componentID}
         style={{ width: 300 }}

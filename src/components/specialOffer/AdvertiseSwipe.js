@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import Card from "./Card";
 import "swiper/swiper.scss";
 import flightFetch from "../../dataHandler/dataHandler";
-import ErrorModal from "../ui/ErrorModal";
 import "./AdvertiseSwipe.css";
+import { ErrorState } from "../../context/ErrorContext";
 
 const AdvertiseSwipe = () => {
   const [cards, setCards] = useState(null);
-  const [error, setError] = useState(null);
+  const { setError } = useContext(ErrorState);
   const [loading, setLoading] = useState(true);
 
   SwiperCore.use([Autoplay]);
@@ -32,15 +32,10 @@ const AdvertiseSwipe = () => {
       },
       (error) => setError(error)
     );
-  }, [fillCards]);
-
-  const clear = useCallback(() => {
-    setError(null);
-  }, []);
+  }, [fillCards, setError]);
 
   return (
     <React.Fragment>
-      {error && <ErrorModal onClose={clear}>{error}</ErrorModal>}
       {loading ? null : (
         <div className="swiper-container">
           <Swiper
