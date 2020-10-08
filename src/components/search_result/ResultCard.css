@@ -27,4 +27,7 @@
 .price {
   max-width: 100px;
   align-self: center;
+  font-size: 40px;
+  margin-left: -72px;
+  margin-right: 10px;
 }
