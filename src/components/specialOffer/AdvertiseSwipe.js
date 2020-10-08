@@ -23,9 +23,15 @@ const AdvertiseSwipe = () => {
   }, [cards]);
 
   useEffect(() => {
-    const queryUrl = `http://localhost:8080/advisor?country=faszrt`;
-    setLoading(true);
-    flightFetch(queryUrl, fillCards, (error) => setError(error));
+    flightFetch(
+      "http://ip-api.com/json",
+      (data) => {
+        const queryUrl = `http://localhost:8080/advisor?country=${data.country}`;
+        setLoading(true);
+        flightFetch(queryUrl, fillCards, (error) => setError(error));
+      },
+      (error) => setError(error)
+    );
   }, [fillCards]);
 
   const clear = useCallback(() => {
@@ -40,8 +46,8 @@ const AdvertiseSwipe = () => {
           <Swiper
             spaceBetween={60}
             slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
             loop={true}
             autoplay={{
               delay: 4000,
@@ -50,7 +56,7 @@ const AdvertiseSwipe = () => {
           >
             {cards.map((card) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={card.linkUrl}>
                   <Card card={card} />;
                 </SwiperSlide>
               );

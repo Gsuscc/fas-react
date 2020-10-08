@@ -4,12 +4,12 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { SearchContext } from "./context/SearchContext";
+import { GeneralContext } from "./context/SearchGeneral";
 
 function App() {
   return (
     <React.Fragment>
-      <SearchContext>
+      <GeneralContext>
         <Router>
           <Header />
           <Switch>
@@ -19,7 +19,7 @@ function App() {
           </Switch>
           <Footer />
         </Router>
-      </SearchContext>
+      </GeneralContext>
     </React.Fragment>
   );
 }
