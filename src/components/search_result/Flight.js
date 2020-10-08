@@ -23,8 +23,11 @@ export default function Flight(props) {
         <div className="departure-code">{props.flight.fromCode}</div>
       </div>
       <div className="flight-route-line">
-        {props.flight.distance.toFixed(2)} Km
+        <span class="line arrow-left"></span>
+        <span className="distance">{props.flight.distance.toFixed(2)} Km</span>
+        <span class="line arrow-right"></span>
       </div>
+      <div className="travel-time">{props.flight.travelTime}</div>
       <div className="arrive">
         <div className="arrival-time">
           {props.flight.arrival.replace("T", " ").slice(0, -3)}
