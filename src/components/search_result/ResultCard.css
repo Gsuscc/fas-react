@@ -1,6 +1,10 @@
 .result-card-container {
   display: flex;
   flex-direction: row;
+  background-color: #ffffffaa;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: center;
 }
 
 .flights {

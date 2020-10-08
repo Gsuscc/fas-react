@@ -18,7 +18,7 @@ export const GeneralContext = (props) => {
   const [returnDate, setReturnDate] = useState(new Date());
   const [person, setPerson] = useState(1);
   const [isReturn, setIsReturn] = useState(true);
-  const [searchResult, setSearchResult] = useState();
+  const [searchResult, setSearchResult] = useState([]);
 
   const isValidSearch = useCallback(() => {
     let now = new Date();
