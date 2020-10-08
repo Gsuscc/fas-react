@@ -1,12 +1,12 @@
 .result-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .result-page {
   display: grid;
   grid-template-columns: 300px auto 300px;
+  padding: 40px 20px;
 }
 
 .result-no-result {
