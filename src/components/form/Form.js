@@ -6,6 +6,7 @@ import Switch from "./Switch";
 import AutoCompleter from "./AutoCompleter";
 import Button from "@material-ui/core/Button";
 import { GeneralState } from "../../context/SearchGeneral";
+import { useHistory } from "react-router-dom";
 
 export default function Form() {
   const { general, isValidSearch, validateSearch } = useContext(GeneralState);
@@ -23,10 +24,11 @@ export default function Form() {
     isReturn,
     setIsReturn,
   ] = general;
-
+  const history = useHistory();
   const submitHandler = () => {
     validateSearch();
     if (isValidSearch()) {
+      history.push("/search");
       console.log("valid");
     }
   };
@@ -59,6 +61,7 @@ export default function Form() {
       />
       <Passengers value={person} setValue={setPerson} />
       <Switch value={isReturn} setValue={setIsReturn} />
+
       <Button
         className="search-button"
         variant="contained"

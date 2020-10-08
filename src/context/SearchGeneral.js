@@ -48,7 +48,7 @@ export const GeneralContext = (props) => {
       .substr(0, 10)}${
       isReturn ? "&returnDate=" + returnDate.toISOString().substr(0, 10) : ""
     }&person=${person}`;
-    flightFetch(queryUrl, setSearchResult, setError);
+    flightFetch(queryUrl, (data) => setSearchResult(data.values), setError);
   }, [
     fromAirport,
     isReturn,
@@ -58,6 +58,7 @@ export const GeneralContext = (props) => {
     toAirport,
     tripDate,
   ]);
+  console.log(searchResult);
 
   useEffect(() => {
     if (isValidSearch()) {

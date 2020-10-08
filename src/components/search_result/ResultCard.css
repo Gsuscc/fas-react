@@ -1,0 +1,9 @@
+.result-card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flights {
+  display: flex;
+  flex-direction: column;
+}

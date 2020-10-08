@@ -15,7 +15,7 @@
   margin-bottom: 30px;
 }
 
-.search-area button {
+.search-button {
   grid-column-start: 1;
   grid-column-end: span 2;
 }

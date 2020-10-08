@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import { GeneralContext } from "./context/SearchGeneral";
 import { ErrorState } from "./context/ErrorContext";
 import ErrorModal from "./components/ui/ErrorModal";
+import ResultPage from "./components/search_result/ResultPage";
 
 function App() {
   const { error, clearError } = useContext(ErrorState);
@@ -19,6 +20,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Main />
+            </Route>
+            <Route path="/search">
+              <ResultPage />
             </Route>
           </Switch>
           <Footer />
