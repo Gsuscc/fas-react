@@ -41,6 +41,7 @@ export const GeneralContext = (props) => {
   };
 
   const startFetch = useCallback(() => {
+    console.log(tripDate)
     const queryUrl = `http://localhost:8080/flight/query?fromCode=${
       fromAirport.code
     }&toCode=${toAirport.code}&tripDate=${tripDate
