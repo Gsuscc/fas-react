@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import DatePicker from "./DatePicker";
-import "./Form.css";
-import Passengers from "./Passengers";
-import Switch from "./Switch";
-import AutoCompleter from "./AutoCompleter";
-import Button from "@material-ui/core/Button";
+import PriceFilter from "./PriceFilter";
+import AutoCompleter from "../form/AutoCompleter";
+import DatePicker from "../form/DatePicker";
+import Switch from "../form/Switch";
+import Passengers from "../form/Passengers";
 import { GeneralState } from "../../context/SearchGeneral";
-import { useHistory } from "react-router-dom";
+import TimeFilter from "./TimeFilter";
+import "./Filter.css";
 
-export default function Form() {
-  const { general, isValidSearch, validateSearch } = useContext(GeneralState);
+export default function Filter(props) {
+  const { general } = useContext(GeneralState);
   const [
     fromAirport,
     setFromAirport,
@@ -24,17 +24,8 @@ export default function Form() {
     isReturn,
     setIsReturn,
   ] = general;
-  const history = useHistory();
-  const submitHandler = () => {
-    validateSearch();
-    if (isValidSearch()) {
-      history.push("/search");
-      console.log("valid");
-    }
-  };
-
   return (
-    <div className="search-area">
+    <div className="filter-container">
       <AutoCompleter
         inputId="airportOne"
         label="From (city or airport)"
@@ -59,17 +50,11 @@ export default function Form() {
         setValue={setReturnDate}
         disabled={!isReturn}
       />
+      <TimeFilter />
+      <TimeFilter />
+      <PriceFilter />
       <Passengers value={person} setValue={setPerson} />
       <Switch value={isReturn} setValue={setIsReturn} />
-
-      <Button
-        className="search-button"
-        variant="contained"
-        color="primary"
-        onClick={submitHandler}
-      >
-        Search
-      </Button>
     </div>
   );
 }
