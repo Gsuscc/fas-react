@@ -18,7 +18,7 @@ export default function Flight(props) {
 
       <div className="start">
         <div className="departure-time">
-          {props.flight.departure.replace("T", " ")}
+          {props.flight.departure.replace("T", " ").slice(0, -3)}
         </div>
         <div className="departure-code">{props.flight.fromCode}</div>
       </div>
@@ -27,7 +27,7 @@ export default function Flight(props) {
       </div>
       <div className="arrive">
         <div className="arrival-time">
-          {props.flight.arrival.replace("T", " ")}
+          {props.flight.arrival.replace("T", " ").slice(0, -3)}
         </div>
 
         <div className="arrival-code">{props.flight.toCode}</div>
