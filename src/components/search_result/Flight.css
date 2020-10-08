@@ -1,6 +1,6 @@
 .flight-conatiner {
   display: grid;
-  grid-template-columns: 70px 150px 200px 200px 200px;
+  grid-template-columns: 96px 140px 206px 236px 350px;
   align-items: center;
   justify-content: center;
 }
@@ -17,7 +17,7 @@
 
 .flight-route-line {
   display: flex;
-  width: 100%;
+  width: 135%;
   margin: 20px auto;
   align-items: center;
 }
