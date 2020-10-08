@@ -1,6 +1,7 @@
 .result-container {
   display: flex;
   flex-direction: column;
+  margin-left: 357px;
 }
 
 .result-page {
