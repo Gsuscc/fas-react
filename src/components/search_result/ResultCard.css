@@ -10,6 +10,7 @@
   border-radius: 5px;
   min-height: 126px;
   max-height: 126px;
+  width: 1120px;
   /* width: 40%; */
 }
 
@@ -31,4 +32,5 @@
   margin-left: -72px;
   margin-right: 10px;
   color: #411d49;
+  padding: 0px 24px;
 }

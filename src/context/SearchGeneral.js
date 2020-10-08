@@ -58,7 +58,6 @@ export const GeneralContext = (props) => {
     toAirport,
     tripDate,
   ]);
-  console.log(searchResult);
 
   useEffect(() => {
     if (isValidSearch()) {
