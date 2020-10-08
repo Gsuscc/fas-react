@@ -5,6 +5,7 @@ import DatePicker from "../form/DatePicker";
 import Switch from "../form/Switch";
 import Passengers from "../form/Passengers";
 import { GeneralState } from "../../context/SearchGeneral";
+import TimeFilter from "./TimeFilter";
 import "./Filter.css";
 
 export default function Filter(props) {
@@ -49,6 +50,8 @@ export default function Filter(props) {
         setValue={setReturnDate}
         disabled={!isReturn}
       />
+      <TimeFilter />
+      <TimeFilter />
       <PriceFilter />
       <Passengers value={person} setValue={setPerson} />
       <Switch value={isReturn} setValue={setIsReturn} />

@@ -11,7 +11,12 @@ export default function ResultCard(props) {
           <Flight flight={props.flight.returnTicket} />
         )}
       </div>
-      <div className="price"></div>
+      <div className="price">
+        {props.flight.returnTicket
+          ? props.flight.ticket.touristPrice +
+            props.flight.returnTicket.touristPrice
+          : props.flight.ticket.touristPrice}
+      </div>
     </div>
   );
 }
