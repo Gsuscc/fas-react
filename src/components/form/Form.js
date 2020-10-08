@@ -29,7 +29,6 @@ export default function Form() {
     validateSearch();
     if (isValidSearch()) {
       history.push("/search");
-      console.log("valid");
     }
   };
 

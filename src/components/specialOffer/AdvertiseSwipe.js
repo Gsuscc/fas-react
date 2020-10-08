@@ -41,8 +41,6 @@ const AdvertiseSwipe = () => {
           <Swiper
             spaceBetween={60}
             slidesPerView={3}
-            // onSlideChange={() => console.log("slide change")}
-            // onSwiper={(swiper) => console.log(swiper)}
             loop={true}
             autoplay={{
               delay: 4000,
@@ -51,7 +49,7 @@ const AdvertiseSwipe = () => {
           >
             {cards.map((card) => {
               return (
-                <SwiperSlide key={card.linkUrl}>
+                <SwiperSlide key={card.city}>
                   <Card card={card} />;
                 </SwiperSlide>
               );
