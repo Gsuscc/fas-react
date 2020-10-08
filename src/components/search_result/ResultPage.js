@@ -9,7 +9,7 @@ export default function ResultPage() {
 
   return (
     <div className="result-container">
-      {searchResult.size <= 0 ? (
+      {searchResult.length <= 0 ? (
         <div>NO RESULT</div>
       ) : (
         searchResult.map((flight) => {
