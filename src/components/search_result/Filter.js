@@ -53,8 +53,11 @@ export default function Filter(props) {
       <TimeFilter />
       <TimeFilter />
       <PriceFilter />
-      <Passengers value={person} setValue={setPerson} />
-      <Switch value={isReturn} setValue={setIsReturn} />
+      <div className="inline">
+        <Passengers value={person} setValue={setPerson} />
+        <Switch value={isReturn} setValue={setIsReturn} />
+      </div>
+
     </div>
   );
 }

@@ -68,6 +68,7 @@ export default function FormControlLabelPosition(props) {
     <FormControl component="fieldset">
       <FormGroup aria-label="position" row>
         <FormControlLabel
+        variant="caption"
           className="switch"
           value="top"
           control={<CustomSwitch checked={checked} onChange={handleChange} />}

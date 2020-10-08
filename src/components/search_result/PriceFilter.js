@@ -23,7 +23,7 @@ export default function RangeSlider() {
 
   return (
     <div className={classes.root}>
-      <Typography id="range-slider" gutterBottom>
+      <Typography id="range-slider" variant="caption" gutterBottom>
         Price range
       </Typography>
       <Slider
