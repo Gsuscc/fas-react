@@ -8,14 +8,18 @@ export default function ResultPage() {
   const [searchResult, setSearchResult] = result;
 
   return (
-    <div className="result-container">
-      {searchResult.length <= 0 ? (
-        <div>NO RESULT</div>
-      ) : (
-        searchResult.map((flight) => {
-          return <ResultCard flight={flight} />;
-        })
-      )}
+    <div className="result-page">
+      <Filter />
+      <div className="result-container">
+        {searchResult.length <= 0 ? (
+          <div className="result-no-result">NO RESULT</div>
+        ) : (
+          searchResult.map((flight) => {
+            return <ResultCard flight={flight} />;
+          })
+        )}
+      </div>
+      <div></div>
     </div>
   );
 }

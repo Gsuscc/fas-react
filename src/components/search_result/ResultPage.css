@@ -3,3 +3,15 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.result-page {
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+}
+
+.result-no-result {
+  font-size: 100px;
+  font-family: pageTitle !important;
+  text-align: center;
+  margin-right: 320px;
+}
