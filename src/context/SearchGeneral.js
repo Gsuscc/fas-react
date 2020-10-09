@@ -19,6 +19,11 @@ export const GeneralContext = (props) => {
   const [person, setPerson] = useState(1);
   const [isReturn, setIsReturn] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
+  const [timeFrom, setTimeFrom] = useState();
+  const [timeTo, setTimeTo] = useState();
+  const [priceFrom, setPriceFrom] = useState(0);
+  const [priceTo, setPriceTo] = useState(15000);
+  const [airLineCode, setAirLineCode] = useState();
 
   const isValidSearch = useCallback(() => {
     let now = new Date();
@@ -96,6 +101,18 @@ export const GeneralContext = (props) => {
         startFetch: startFetch,
         isValidSearch: isValidSearch,
         result: [searchResult, setSearchResult],
+        filter: [
+          timeFrom,
+          setTimeFrom,
+          timeTo,
+          setTimeTo,
+          priceFrom,
+          setPriceFrom,
+          priceTo,
+          setPriceTo,
+          airLineCode,
+          setAirLineCode,
+        ],
       }}
     >
       {props.children}

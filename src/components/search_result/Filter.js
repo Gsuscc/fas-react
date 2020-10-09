@@ -9,7 +9,7 @@ import TimeFilter from "./TimeFilter";
 import "./Filter.css";
 
 export default function Filter(props) {
-  const { general } = useContext(GeneralState);
+  const { general, filter } = useContext(GeneralState);
   const [
     fromAirport,
     setFromAirport,
@@ -24,6 +24,18 @@ export default function Filter(props) {
     isReturn,
     setIsReturn,
   ] = general;
+  const [
+    timeFrom,
+    setTimeFrom,
+    timeTo,
+    setTimeTo,
+    priceFrom,
+    setPriceFrom,
+    priceTo,
+    setPriceTo,
+    airLineCode,
+    setAirLineCode,
+  ] = filter;
   return (
     <div className="filter-container">
       <AutoCompleter
@@ -52,7 +64,7 @@ export default function Filter(props) {
       />
       <TimeFilter />
       <TimeFilter />
-      <PriceFilter />
+      <PriceFilter fromValue={priceFrom} setFromValue={setPriceFrom} toValue={priceTo} setToValue={setPriceTo}/>
       <div className="inline">
         <Passengers value={person} setValue={setPerson} />
         <Switch value={isReturn} setValue={setIsReturn} />

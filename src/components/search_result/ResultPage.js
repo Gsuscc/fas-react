@@ -4,9 +4,20 @@ import { GeneralState } from "../../context/SearchGeneral";
 import ResultCard from "./ResultCard";
 import "./ResultPage.css";
 export default function ResultPage() {
-  const { result } = useContext(GeneralState);
+  const { result, filter } = useContext(GeneralState);
   const [searchResult, setSearchResult] = result;
-  console.log(searchResult);
+  const [
+    timeFrom,
+    setTimeFrom,
+    timeTo,
+    setTimeTo,
+    priceFrom,
+    setPriceFrom,
+    priceTo,
+    setPriceTo,
+    airLineCode,
+    setAirLineCode,
+  ] = filter;
 
   return (
     <div className="result-page">
@@ -30,7 +41,12 @@ export default function ResultPage() {
                 : 0
             )
             .map((flight) => {
-              return <ResultCard flight={flight} />;
+              let price = flight.ticket.touristPrice +
+              (flight.returnTicket ? flight.returnTicket.touristPrice : 0)
+              if (price >= priceFrom && price <= priceTo) {
+                return <ResultCard flight={flight} />;
+              }
+              return null;
             })
         )}
       </div>
