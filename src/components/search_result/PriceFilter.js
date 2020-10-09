@@ -14,40 +14,18 @@ function valuetext(value) {
   return `${value}$`;
 }
 
-export default function RangeSlider() {
+export default function RangeSlider(props) {
   const classes = useStyles();
-  const { result } = useContext(GeneralState);
-  const [searchResult, setSearchResult] = result;
-  let defaultPriceLow = 20;
-  let defaultPriceMax = 500;
-  if (searchResult.length > 0) {
-    defaultPriceLow =
-      searchResult[0].ticket.touristPrice +
-      (searchResult[0].returnTicket
-        ? searchResult[0].returnTicket.touristPrice
-        : 0);
-
-    defaultPriceMax =
-      searchResult[searchResult.length - 1].ticket.touristPrice +
-      (searchResult[searchResult.length - 1].returnTicket
-        ? searchResult[searchResult.length - 1].returnTicket.touristPrice
-        : 0);
-  }
-  const [value, setValue] = React.useState([defaultPriceLow, defaultPriceMax]);
+  const fromValue=props.fromValue;
+  const setFromValue=props.setFromValue 
+  const toValue=props.toValue
+  const setToValue=props.setToValue
+//  const [value, setValue] = React.useState([fromValue, toValue]);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-    console.log(newValue[0]);
-    console.log(newValue[1]);
-    let originalResult = searchResult;
-    let newResult = searchResult.filter((obj) => {
-      console.log(obj);
-      let price =
-        obj.ticket.touristPrice +
-        (obj.returnTicket ? obj.returnTicket.touristPrice : 0);
-      return price >= newValue[0] && price <= newValue[1];
-    });
-    setSearchResult(newResult);
+    const [from, to] = newValue;
+    setFromValue(from);
+    setToValue(to)
   };
 
   return (
@@ -56,8 +34,8 @@ export default function RangeSlider() {
         Price range
       </Typography>
       <Slider
-        max={defaultPriceMax}
-        value={value}
+        max={15000}
+        value={[fromValue, toValue]}
         onChange={handleChange}
         valueLabelDisplay="auto"
         aria-labelledby="range-slider"
