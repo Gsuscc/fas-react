@@ -83,17 +83,25 @@ export default function Autocompleter(props) {
             {option.label}
           </React.Fragment>
         )}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label={label}
-            variant="standard"
-            inputProps={{
-              ...params.inputProps,
-              autoComplete: "new-password", // disable autocomplete and autofill
-            }}
-          />
-        )}
+        renderInput={(params) => {
+          const inputProps = params.inputProps;
+          inputProps.autoComplete = "off";
+          return (
+            <TextField
+              {...params}
+              inputProps={inputProps}
+              label={label}
+              variant="standard"
+              // inputProps={{
+              //   ...params.inputProps,
+              //   autoComplete: "new-password",
+              //   form: {
+              //     autocomplete: "off",
+              //   },
+              // }}
+            />
+          );
+        }}
       />
     </React.Fragment>
   );
