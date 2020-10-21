@@ -43,7 +43,7 @@ export default function ResultPage() {
             .map((flight) => {
               let price = flight.ticket.touristPrice +
               (flight.returnTicket ? flight.returnTicket.touristPrice : 0)
-              if (price >= priceFrom && price <= priceTo) {
+              if (price >= priceFrom && price <= priceTo && timeFrom <= new Date(flight.ticket.departure) && timeTo >= new Date(flight.ticket.departure))  {
                 return <ResultCard flight={flight} />;
               }
               return null;
