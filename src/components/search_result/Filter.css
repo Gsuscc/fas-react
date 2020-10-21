@@ -23,10 +23,8 @@
   justify-content: center;
   padding: 5px;
 }
-.toggle-filters {
-  animation: fade-filter 4s linear;
-}
 .filters {
+  animation: fade-filter 4s linear;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -36,7 +34,6 @@
   width: 30px;
   height: 30px;
 }
-
 @keyframes fade-filter {
   from {
     max-height: 0vh;

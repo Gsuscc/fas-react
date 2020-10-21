@@ -45,53 +45,52 @@ export default function Filter(props) {
     [isFiltersVisible],
   )
   return (
-    <div className={`filter-container ${isFiltersVisible && "toggle-filters"}`}>
+    <div className="filter-container">
       
       {isFiltersVisible && 
-      <div className="filters">
-<div className="column">
-        <AutoCompleter
-          inputId="airportOne"
-          label="From (city or airport)"
-          value={fromAirport}
-          setValue={setFromAirport}
-        />
-        <AutoCompleter
-          inputId="airportTwo"
-          label="To (city or airport)"
-          value={toAirport}
-          setValue={setToAirport}
-        />
-      </div>
-      <div className="column">
-        <DatePicker
-          label="Departure date"
-          value={tripDate}
-          setValue={setTripDate}
-          disabled={false}
-        />
-        <DatePicker
-          label="Return date"
-          value={returnDate}
-          setValue={setReturnDate}
-          disabled={!isReturn}
-        />
-      </div>
-      <div className="column">
-        <TimeFilter />
-        <TimeFilter />
-      </div>
-      <div className="column">
-        <PriceFilter fromValue={priceFrom} setFromValue={setPriceFrom} toValue={priceTo} setToValue={setPriceTo}/>
-        <Passengers value={person} setValue={setPerson} />
-      </div>
-      <div className="inline">
-        <Switch value={isReturn} setValue={setIsReturn} />
-      </div>
-      </div>
-}
+        <div className="filters">
+          <div className="column">
+            <AutoCompleter
+              inputId="airportOne"
+              label="From (city or airport)"
+              value={fromAirport}
+              setValue={setFromAirport}
+            />
+            <AutoCompleter
+              inputId="airportTwo"
+              label="To (city or airport)"
+              value={toAirport}
+              setValue={setToAirport}
+            />
+          </div>
+          <div className="column">
+            <DatePicker
+              label="Departure date"
+              value={tripDate}
+              setValue={setTripDate}
+              disabled={false}
+            />
+            <DatePicker
+              label="Return date"
+              value={returnDate}
+              setValue={setReturnDate}
+              disabled={!isReturn}
+            />
+          </div>
+          <div className="column">
+            <TimeFilter />
+            <TimeFilter />
+          </div>
+          <div className="column">
+            <PriceFilter fromValue={priceFrom} setFromValue={setPriceFrom} toValue={priceTo} setToValue={setPriceTo}/>
+            <Passengers value={person} setValue={setPerson} />
+          </div>
+          <div className="inline">
+            <Switch value={isReturn} setValue={setIsReturn} />
+          </div>
+        </div>
+      }
       <div onClick={toggleFilters}>
-
         <img id="filter-icon" alt="toggleFilterBar" src="https://cdn.discordapp.com/attachments/757838866047696906/768444610522513408/toppng.com-file-svg-filter-icon-980x981.png"></img>
       </div>
     </div>
