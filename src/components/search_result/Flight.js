@@ -50,7 +50,7 @@ export default function Flight(props) {
           {props.flight.arrival.replace("T", " ").slice(0, -3)}
         </div>
         <div className="arrival-place">
-          <span>{countryToFlag(props.flight.fromAirport.countryCode)} </span>
+          <span>{countryToFlag(props.flight.toAirport.countryCode)} </span>
           {props.flight.toAirport.city.cityName}
         </div>
         <div className="arrival-code">{props.flight.toAirport.code}</div>
