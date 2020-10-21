@@ -80,6 +80,12 @@ export const GeneralContext = (props) => {
     tripDate,
   ]);
 
+  useEffect(() => {
+    setTimeFrom(new Date(tripDate.setHours(0,0,0,0)));
+    
+    setTimeTo(new Date(tripDate.setHours(23,59,59,59)))
+  },[tripDate,timeFrom,timeTo])
+
   return (
     <GeneralState.Provider
       value={{

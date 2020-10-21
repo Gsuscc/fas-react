@@ -78,8 +78,8 @@ export default function Filter(props) {
             />
           </div>
           <div className="column">
-            <TimeFilter />
-            <TimeFilter />
+            <TimeFilter  time={timeFrom} setTime={setTimeFrom}/>
+            <TimeFilter time={timeTo} setTime={setTimeTo} />
           </div>
           <div className="column">
             <PriceFilter fromValue={priceFrom} setFromValue={setPriceFrom} toValue={priceTo} setToValue={setPriceTo}/>
