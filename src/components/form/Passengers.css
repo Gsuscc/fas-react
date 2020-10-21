@@ -1,0 +1,9 @@
+#adult-icon {
+  height: 35px;
+  margin: 0px 10px;
+}
+.passenger-selector {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
