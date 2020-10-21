@@ -9,8 +9,8 @@ body {
 }
 
 ul.topnav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 100px auto 100px;
   align-items: center;
   flex-wrap: wrap;
   margin: 0;
