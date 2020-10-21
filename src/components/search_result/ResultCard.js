@@ -11,7 +11,8 @@ export default function ResultCard(props) {
     },
     [isMapVisible],
   )
-  console.log(props.flight)
+
+
   return (
     <React.Fragment>
       <div className="result-card-container" onClick={switchIsMapVisible}>
@@ -31,7 +32,7 @@ export default function ResultCard(props) {
           $
         </div>
       </div>
-      {isMapVisible && 
+      {isMapVisible &&
       <div className="map-container">
         <HereMap 
         start={{
@@ -43,7 +44,8 @@ export default function ResultCard(props) {
           lng: parseFloat(props.flight.ticket.toAirport.longitude),
         }} />
         </div>
-      }
+        }
+
     </React.Fragment>
 
   );

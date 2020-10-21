@@ -136,7 +136,7 @@ const HereMap = (props) => {
     };
   }, [mapRef, start, end]);
 
-  return <div className="map" ref={mapRef} />;
+  return <div className="map" ref={mapRef}  />;
 };
 
 export default HereMap;
