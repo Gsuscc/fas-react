@@ -24,7 +24,7 @@
   padding: 5px;
 }
 .toggle-filters {
-  animation: fade-filter 1500ms linear;
+  animation: fade-filter 4s linear;
 }
 .filters {
   display: flex;
@@ -39,13 +39,14 @@
 
 @keyframes fade-filter {
   from {
-    /* height: 0; */
-    transform: translateY(-100%);
+    max-height: 0vh;
+
     /* opacity: 0; */
   }
   to {
-    /* height: auto; */
-    transform: translateY(0);
+    max-height: 550vh;
+    /* transform: translateY(0); */
+
     /* opacity: 1; */
   }
 }
