@@ -8,18 +8,19 @@ import {
 } from "@material-ui/pickers";
 
 export default function TimeFilter(props) {
+  const time = props.time
+  const setTime = props.setTime
+
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
+    new Date(time)
   );
 
   const handleDateChange = (date) => {
-    console.log(date);
-    setSelectedDate(date);
+    setTime(date);
   };
 
-  const time = props.time
-  const setTime = props.setTime
+  
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -27,7 +28,7 @@ export default function TimeFilter(props) {
         <KeyboardTimePicker
           id="time-picker"
           label="Time picker"
-          value={selectedDate}
+          value={time}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             "aria-label": "change time",
