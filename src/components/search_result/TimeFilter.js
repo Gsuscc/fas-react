@@ -11,11 +11,6 @@ export default function TimeFilter(props) {
   const time = props.time
   const setTime = props.setTime
 
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date(time)
-  );
-
   const handleDateChange = (date) => {
     setTime(date);
   };
