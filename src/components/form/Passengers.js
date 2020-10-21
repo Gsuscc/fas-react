@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import "./Passengers.css"
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
     minWidth: 80,
     textAlign: "center",
   },
@@ -24,7 +24,7 @@ export default function Passengers(props) {
   };
 
   return (
-    <div>
+    <div className="passenger-selector">
       <img src="/adult.png" alt="passenger" id="adult-icon"></img>
       <FormControl className={classes.formControl}>
         <Select

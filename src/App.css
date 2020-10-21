@@ -1,27 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @font-face {
   font-family: pageTitle;
   src: url(/Lobster_1.3.otf);
@@ -33,14 +9,17 @@ body {
 }
 
 ul.topnav {
-  list-style-type: none;
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0;
-  padding: 0;
+  list-style-type: none;
   overflow: hidden;
   background-color: #3e004a;
 }
 
-ul.topnav li a {
+ul.topnav li div {
   display: block;
   color: #abe390 !important;
   text-align: center;
@@ -55,6 +34,9 @@ ul.topnav li.right {
   color: #abe390 !important;
   font-family: pageTitle;
 }
+.link {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
   ul.topnav li.right,
@@ -68,11 +50,6 @@ ul.topnav li.right {
 }
 
 .page-title {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  margin: auto;
-  padding-top: 33px;
   font-family: pageTitle;
   font-size: 54px;
 }
@@ -80,11 +57,7 @@ ul.topnav li.right {
 .page-title-text {
   color: #ace391 !important;
 }
-#adult-icon {
-  width: 26px;
-  margin-top: -6px;
-  margin-right: 5px;
-}
+
 #passenger-select-label {
   text-align: center;
   width: 90px;

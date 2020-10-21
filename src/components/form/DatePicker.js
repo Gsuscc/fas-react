@@ -23,7 +23,6 @@ export default function DatePicker(props) {
           disableToolbar
           variant="inline"
           format="dd/MM/yyyy"
-          margin="normal"
           id="date-picker-inline"
           label={props.label}
           disabled={disabled}

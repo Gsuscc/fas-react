@@ -1,20 +1,25 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Header() {
+  const history = useHistory();
+  const submitHandler = () => {
+    history.push("/");
+  };
   return (
     <ul className="topnav">
       <li>
-        <a className="site-logo" href="/">
+        <div className="site-logo link" onClick={submitHandler}>
           <img src="/plane.png" alt="plane" className="plane"></img>
-        </a>
+        </div>
       </li>
-      <li className="page-title">
-        <a className="page-title-text" href="/">
+      <li className="page-title link">
+        <div className="page-title-text" onClick={submitHandler}>
           Fake Airline Services
-        </a>
+        </div>
       </li>
-      <li className="right">
-        <a href="#about">About</a>
+      <li className="right link">
+        <div onClick={submitHandler}>About</div>
       </li>
     </ul>
   );

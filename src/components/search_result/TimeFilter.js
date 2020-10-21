@@ -21,7 +21,6 @@ export default function TimeFilter() {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
         <KeyboardTimePicker
-          margin="normal"
           id="time-picker"
           label="Time picker"
           value={selectedDate}
