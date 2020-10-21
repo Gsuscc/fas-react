@@ -32,6 +32,7 @@ export default function ResultCard(props) {
         </div>
       </div>
       {isMapVisible && 
+      <div className="map-container">
         <HereMap 
         start={{
           lat: parseFloat(props.flight.ticket.fromAirport.latitude),
@@ -41,6 +42,7 @@ export default function ResultCard(props) {
           lat: parseFloat(props.flight.ticket.toAirport.latitude),
           lng: parseFloat(props.flight.ticket.toAirport.longitude),
         }} />
+        </div>
       }
     </React.Fragment>
 

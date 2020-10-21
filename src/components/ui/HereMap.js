@@ -136,7 +136,7 @@ const HereMap = (props) => {
     };
   }, [mapRef, start, end]);
 
-  return <div className="map" ref={mapRef} style={{ height: "300px", maxWidth: "750px" }} />;
+  return <div className="map" ref={mapRef} />;
 };
 
 export default HereMap;
