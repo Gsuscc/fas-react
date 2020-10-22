@@ -34,6 +34,7 @@ export default function ResultCard(props) {
       </div>
       {isMapVisible &&
       <div className="map-container">
+        <div className="map-frame">
         <HereMap 
         start={{
           lat: parseFloat(props.flight.ticket.fromAirport.latitude),
@@ -43,6 +44,7 @@ export default function ResultCard(props) {
           lat: parseFloat(props.flight.ticket.toAirport.latitude),
           lng: parseFloat(props.flight.ticket.toAirport.longitude),
         }} />
+        </div>
         </div>
         }
 
