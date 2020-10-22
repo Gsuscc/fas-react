@@ -38,7 +38,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  animation: fade 1500ms linear;
+  animation: fade 1200ms linear;
 }
 
 @keyframes fade {
@@ -55,4 +55,24 @@
 .map {
   height: 300px;
   width: 750px;
+}
+
+@keyframes fade-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.map-frame {
+  background-color: #ffffffaa;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  min-height: 126px;
+  animation: fade-opacity 3400ms linear;
 }
