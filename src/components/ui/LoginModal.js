@@ -42,23 +42,23 @@ export default function LoginModal(props) {
   const { onClose, open, details } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
 
   const handleClick =()=> {
-      axios.post('http://localhost:8080/auth/register',{
+      axios.post('http://localhost:8080/auth/login',{
         username: username,
-        email: email,
         password: password
       }).then((response)=>{
-        console.log(response)
+        window.localStorage.setItem("fas-token", response.data.token)
+        window.localStorage.setItem("fas-user", response.data.username)
+        onClose()
       }).catch((err) => {
         setErrorMessage(err.response.data)
       })
   }
   useEffect(() => {
     setErrorMessage("")
-  },[username, email, password])
+  },[username, password])
 
   return (
     <div>
@@ -91,7 +91,7 @@ export default function LoginModal(props) {
             Cancel
           </Button>
           <Button onClick={handleClick} color="primary">
-            Register
+            Login
           </Button>
         </DialogActions>
       </Dialog>
