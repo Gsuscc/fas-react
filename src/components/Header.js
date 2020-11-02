@@ -1,3 +1,4 @@
+import Menu from "./Menu";
 import React from "react";
 import { useHistory } from "react-router-dom";
 
@@ -19,7 +20,7 @@ export default function Header() {
         </div>
       </li>
       <li className="right link">
-        <div onClick={submitHandler}>About</div>
+        <Menu />
       </li>
     </ul>
   );
