@@ -1,4 +1,4 @@
-import React ,{useContext, useState}from 'react';
+import React ,{useContext, useEffect, useState}from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -31,6 +31,7 @@ export default function RegistrationModal(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
 
 
   const handleClick =()=> {
@@ -40,13 +41,20 @@ export default function RegistrationModal(props) {
         password: password
       }).then((response)=>{
         console.log(response)
+  
+      }).catch((err) => {
+        setErrorMessage(err.response.data)
       })
   }
+  useEffect(() => {
+    setErrorMessage("")
+  },[username, email, password])
 
   return (
     <div>
       <Dialog PaperProps={{className: classes.paper}} open={open} onClose={onClose} aria-labelledby="form-dialog-title">
         <DialogTitle className={classes.title} id="form-dialog-title" disableTypography>Registration</DialogTitle>
+        {errorMessage && <div className="register-error">{errorMessage}</div>}
         <DialogContent>
           <div className={classes.fields}>
             <TextField
