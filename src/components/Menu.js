@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import RegistrationModal from './ui/RegistrationModal'
+import LoginModal from './ui/LoginModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,11 @@ const Menu = () => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [openRegistration, setOpenRegistration] = React.useState(false);
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const [registrationDetails, setRegistrationDetails] = React.useState({
+      message: null,
+      username: null,
+  });
 
   const handleClickRegistrationOpen = () => {
     setOpenRegistration(true);
@@ -45,6 +51,18 @@ const Menu = () => {
     setOpenRegistration(false);
   };
 
+
+  const handleClickLoginOpen = () => {
+    setOpenLogin(true);
+  };
+
+  const handleLoginClose = () => {
+    setRegistrationDetails({
+        message: null,
+        username: null,
+    });
+    setOpenLogin(false);
+  };
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -78,7 +96,15 @@ const Menu = () => {
   return (
     <div className={classes.root}>
       <div>
-          <RegistrationModal onClose={handleRegistrationClose} open={openRegistration} />
+        {openRegistration && <RegistrationModal 
+            onClose={handleRegistrationClose} 
+            open={openRegistration} 
+            openLogin={handleClickLoginOpen}
+            setDetails={setRegistrationDetails}/>}
+        {openLogin && <LoginModal 
+            onClose={handleLoginClose} 
+            open={openLogin} 
+            details={registrationDetails} />}
         <Button
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
@@ -101,7 +127,10 @@ const Menu = () => {
                         handleClose(event)
                         handleClickRegistrationOpen()
                     }}>Registration</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={handleClose}>Login</MenuItem>
+                    <MenuItem className={classes.menuitem} onClick={(event) => {
+                        handleClose(event)
+                        handleClickLoginOpen()
+                    }}>Login</MenuItem>
                     <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>
                     <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>
                     <MenuItem className={classes.menuitem} onClick={handleClose}>About</MenuItem>

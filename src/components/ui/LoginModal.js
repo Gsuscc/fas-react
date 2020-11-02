@@ -27,18 +27,23 @@ const useStyles = makeStyles((theme) => (
         fontSize: '12px',
         color: 'red',
         fontWeight: 'bold'
+    },
+    message: {
+      textAlign: 'center',
+      fontSize: '12px',
+      color: 'green',
+      fontWeight: 'bold'
     }
   }));
 
 
-export default function RegistrationModal(props) {
+export default function LoginModal(props) {
   const classes = useStyles();
-  const { onClose, open, openLogin, setDetails } = props;
+  const { onClose, open, details } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
-
 
   const handleClick =()=> {
       axios.post('http://localhost:8080/auth/register',{
@@ -46,12 +51,7 @@ export default function RegistrationModal(props) {
         email: email,
         password: password
       }).then((response)=>{
-        setDetails({
-            message: "Successful registration, you can login now",
-            username: username,
-        })
-        onClose();
-        openLogin()
+        console.log(response)
       }).catch((err) => {
         setErrorMessage(err.response.data)
       })
@@ -63,26 +63,18 @@ export default function RegistrationModal(props) {
   return (
     <div>
       <Dialog PaperProps={{className: classes.paper}} open={open} onClose={onClose} aria-labelledby="form-dialog-title">
-        <DialogTitle className={classes.title} id="form-dialog-title" disableTypography>Registration</DialogTitle>
+        <DialogTitle className={classes.title} id="form-dialog-title" disableTypography>Login</DialogTitle>
+        {details.message && <div className={classes.message}>{details.message}</div>}
         {errorMessage && <div className={classes.errorMessage}>{errorMessage}</div>}
         <DialogContent>
           <div className={classes.fields}>
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Email Address"
-                type="email"
-                onChange={(event) => setEmail(event.target.value)}
-                value={email}
-            />
             <TextField
                 margin="dense"
                 id="name"
                 label="Username"
                 type="username"
                 onChange={(event) => setUsername(event.target.value)}
-                value={username}
+                value={details.username}
             />
             <TextField
                 margin="dense"
