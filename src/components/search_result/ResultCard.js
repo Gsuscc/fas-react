@@ -26,13 +26,15 @@ export default function ResultCard(props) {
           )}
         </div>
         <div className="price">
+          
           {props.flight.returnTicket
             ? parseInt(
                 props.flight.ticket.touristPrice +
                   props.flight.returnTicket.touristPrice
               )
-            : parseInt(props.flight.ticket.touristPrice)}
+            : parseInt(props.flight.ticket.touristPrice) * parseInt(props.flight.person)}
           $
+          <div className="person">{props.flight.person} <img className="user-icon-img" src="user-icon.png" alt="user-icon"></img></div>
         </div>
       </div>
       {isDetailsVisible &&
@@ -40,7 +42,7 @@ export default function ResultCard(props) {
           <BookFlight toFlightId={props.flight.ticket.id} returnFlightId={
                                     props.flight.returnTicket?
                                     props.flight.returnTicket.id
-                                    : null}/>
+                                    : null} person={props.flight.person}/>
 
           <div className="map-container">
             <div className="map-frame">

@@ -29,11 +29,12 @@ export default function BookFlight(props) {
   const classes = useStyles();
   const toFlight = props.toFlightId;
   const returnFlight = props.returnFlightId;
+  const person = props.person;
   const { setError } = React.useContext(ErrorState);
   const [isBooked, setIsBooked] = React.useState(false)
 
   const handleBooking = () => {
-      let queryparam = `id=${toFlight}`;
+      let queryparam = `id=${toFlight}&person=${person}`;
       if (returnFlight) queryparam += "&returnId=" + returnFlight;
       flightFetch(`http://localhost:8080/favourite/book?${queryparam}`, confirmBooking, (error) => {setError(error)})
   }
