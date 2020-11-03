@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { ErrorContext } from "./context/ErrorContext";
+import { UserContext } from "./context/UserContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <ErrorContext>
-      <App />
+      <UserContext>
+        <App />
+      </UserContext>
     </ErrorContext>
   </React.StrictMode>,
   document.getElementById("root")
