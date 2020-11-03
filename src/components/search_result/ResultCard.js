@@ -15,6 +15,7 @@ export default function ResultCard(props) {
     [isDetailsVisible],
   )
 
+
   return (
     <React.Fragment>
       <div className="result-card-container" onClick={openDetails}>
@@ -36,7 +37,10 @@ export default function ResultCard(props) {
       </div>
       {isDetailsVisible &&
         <React.Fragment>
-          <BookFlight />
+          <BookFlight toFlightId={props.flight.ticket.id} returnFlightId={
+                                    props.flight.returnTicket?
+                                    props.flight.returnTicket.id
+                                    : null}/>
 
           <div className="map-container">
             <div className="map-frame">

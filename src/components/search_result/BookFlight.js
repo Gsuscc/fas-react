@@ -1,7 +1,7 @@
 import React from 'react'
 import { UserState } from '../../context/UserContext';
 import { makeStyles } from '@material-ui/core/styles';
-
+import flightFetch from '../../dataHandler/dataHandler'
 const useStyles = makeStyles((theme) => ({
   bookFlight: {
     display: 'flex',
@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BookFlight() {
+export default function BookFlight(props) {
 
   const { isLoggedIn, setOpenLogin, setLoginDetails } = React.useContext(UserState);
   const classes = useStyles();
   const handleBooking = () => {
-
+      flightFetch(`http://localhost:8080/favourite/book?id=${props.toFlightId}&returnId=${props.returnFlightId}`, () => null, () => null)
   }
 
   const handleLogin = () => {
