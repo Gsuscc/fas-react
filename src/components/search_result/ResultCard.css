@@ -76,3 +76,8 @@
   min-height: 126px;
   animation: fade-opacity 3400ms linear;
 }
+
+.book-icon {
+  width: 35px;
+  height: 35px;
+}

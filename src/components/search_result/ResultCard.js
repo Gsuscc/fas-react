@@ -2,20 +2,22 @@ import React, {useState, useCallback} from "react";
 import HereMap from "../ui/HereMap";
 import Flight from "./Flight";
 import "./ResultCard.css";
+import { UserState } from '../../context/UserContext';
+import BookFlight from "./BookFlight";
 
 export default function ResultCard(props) {
-  const [isMapVisible, setIsMapVisible] = useState(false);
-  const switchIsMapVisible = useCallback(
-    () => {
-      setIsMapVisible(!isMapVisible)
-    },
-    [isMapVisible],
-  )
+  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
 
+  const openDetails = useCallback(
+    () => {
+      setIsDetailsVisible(!isDetailsVisible)
+    },
+    [isDetailsVisible],
+  )
 
   return (
     <React.Fragment>
-      <div className="result-card-container" onClick={switchIsMapVisible}>
+      <div className="result-card-container" onClick={openDetails}>
         <div className="flights">
           <Flight flight={props.flight.ticket} />
           {props.flight.returnTicket && (
@@ -32,21 +34,25 @@ export default function ResultCard(props) {
           $
         </div>
       </div>
-      {isMapVisible &&
-      <div className="map-container">
-        <div className="map-frame">
-        <HereMap 
-        start={{
-          lat: parseFloat(props.flight.ticket.fromAirport.latitude),
-          lng: parseFloat(props.flight.ticket.fromAirport.longitude),
-        }} 
-        end={{
-          lat: parseFloat(props.flight.ticket.toAirport.latitude),
-          lng: parseFloat(props.flight.ticket.toAirport.longitude),
-        }} />
-        </div>
-        </div>
-        }
+      {isDetailsVisible &&
+        <React.Fragment>
+          <BookFlight />
+
+          <div className="map-container">
+            <div className="map-frame">
+            <HereMap 
+            start={{
+              lat: parseFloat(props.flight.ticket.fromAirport.latitude),
+              lng: parseFloat(props.flight.ticket.fromAirport.longitude),
+            }} 
+            end={{
+              lat: parseFloat(props.flight.ticket.toAirport.latitude),
+              lng: parseFloat(props.flight.ticket.toAirport.longitude),
+            }} />
+            </div>
+          </div>
+        </React.Fragment>
+      }
 
     </React.Fragment>
 

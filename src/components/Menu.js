@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -9,6 +9,7 @@ import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import RegistrationModal from './ui/RegistrationModal'
 import LoginModal from './ui/LoginModal';
+import { UserState } from '../context/UserContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,13 +45,15 @@ const Menu = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const { 
+    isLoggedIn, 
+    setIsLoggedIn, 
+    openLogin, 
+    setOpenLogin, 
+    loginDetails, 
+    setLoginDetails 
+  } = React.useContext(UserState);
   const [openRegistration, setOpenRegistration] = React.useState(false);
-  const [openLogin, setOpenLogin] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(window.localStorage.getItem('fas-user') && window.localStorage.getItem('fas-token'));
-  const [registrationDetails, setRegistrationDetails] = React.useState({
-      message: null,
-      username: null,
-  });
 
   const handleClickRegistrationOpen = () => {
     setOpenRegistration(true);
@@ -59,7 +62,6 @@ const Menu = () => {
   const handleRegistrationClose = () => {
     setOpenRegistration(false);
   };
-
 
   const handleClickLoginOpen = () => {
     setOpenLogin(true);
@@ -73,7 +75,7 @@ const Menu = () => {
   }
 
   const handleLoginClose = () => {
-    setRegistrationDetails({
+    setLoginDetails({
         message: null,
         username: null,
     });
@@ -122,11 +124,11 @@ const Menu = () => {
             onClose={handleRegistrationClose} 
             open={openRegistration} 
             openLogin={handleClickLoginOpen}
-            setDetails={setRegistrationDetails}/>}
+            setDetails={setLoginDetails}/>}
         {openLogin && <LoginModal 
             onClose={handleLoginClose} 
             open={openLogin} 
-            details={registrationDetails}
+            details={loginDetails}
             onLogin={setIsLoggedIn} />}
         <Button
           ref={anchorRef}
