@@ -3,11 +3,11 @@
   flex-direction: column;
   align-items: center;
   background: #ffffffaa;
-  height: 65%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
   padding: 15px;
+  align-self: center;
 }
 .inline {
   display: flex;
@@ -37,11 +37,12 @@
 @keyframes fade-filter {
   from {
     max-height: 0vh;
-
+    min-width: 0px;
     /* opacity: 0; */
   }
   to {
     max-height: 550vh;
+    min-width: 1000px;
     /* transform: translateY(0); */
 
     /* opacity: 1; */
