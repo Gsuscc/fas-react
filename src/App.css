@@ -17,10 +17,11 @@ ul.topnav {
   list-style-type: none;
   overflow: hidden;
   background-color: #3e004a;
+  flex-wrap: nowrap;
 }
 
 ul.topnav li div {
-  display: block;
+  /* display: block; */
   color: #abe390 !important;
   text-align: center;
   text-decoration: none;
@@ -33,6 +34,8 @@ ul.topnav li.right {
   font-size: 27px;
   color: #abe390 !important;
   font-family: pageTitle;
+  display: flex;
+  justify-content: flex-end;
 }
 .link {
   cursor: pointer;
@@ -63,4 +66,10 @@ ul.topnav li.right {
   width: 90px;
   font-family: pageTitle;
   font-size: 21px;
+}
+
+.user-icon-img {
+  margin-right: 5px;
+  height: 20px;
+  width: 20px;
 }

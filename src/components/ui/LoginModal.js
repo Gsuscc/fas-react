@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => (
 
 export default function LoginModal(props) {
   const classes = useStyles();
-  const { onClose, open, details } = props;
+  const { onClose, open, details, onLogin } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
@@ -51,6 +51,7 @@ export default function LoginModal(props) {
       }).then((response)=>{
         window.localStorage.setItem("fas-token", response.data.token)
         window.localStorage.setItem("fas-user", response.data.username)
+        onLogin(true)
         onClose()
       }).catch((err) => {
         setErrorMessage(err.response.data)

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 export default function Header() {
   const history = useHistory();
+
   const submitHandler = () => {
     history.push("/");
   };
