@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
     margin: '15px auto',
     textAlign: 'center',
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+    "&:hover":{
+      transform: 'scale(1.2)'
+
+    }
   },
 }));
 
