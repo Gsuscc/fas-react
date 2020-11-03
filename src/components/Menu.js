@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -13,6 +13,7 @@ import LoginModal from './ui/LoginModal';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    margin: '0px 0px 0px 26px'
   },
   paper: {
     background: '#ffffffaa',
@@ -28,6 +29,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '22px',
     color: 'black',
     fontFamily: 'pageTitle'
+  },
+  loggedIn: {
+      display: 'flex',
+      flexWrap: 'nowrap',
+      alignItems: 'center',
+      fontSize: '20px',
+      color: '#cacfeb'
   }
 
 }));
@@ -38,6 +46,7 @@ const Menu = () => {
   const anchorRef = React.useRef(null);
   const [openRegistration, setOpenRegistration] = React.useState(false);
   const [openLogin, setOpenLogin] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(window.localStorage.getItem('fas-user') && window.localStorage.getItem('fas-token'));
   const [registrationDetails, setRegistrationDetails] = React.useState({
       message: null,
       username: null,
@@ -55,6 +64,13 @@ const Menu = () => {
   const handleClickLoginOpen = () => {
     setOpenLogin(true);
   };
+
+  const handleClickLogout = (event) =>  {
+    setIsLoggedIn(false)
+    window.localStorage.removeItem('fas-token')
+    window.localStorage.removeItem('fas-user')
+    handleClose(event)
+  }
 
   const handleLoginClose = () => {
     setRegistrationDetails({
@@ -94,7 +110,13 @@ const Menu = () => {
   }, [open]);
 
   return (
-    <div className={classes.root}>
+  <React.Fragment>
+    {isLoggedIn && <div className={classes.loggedIn}>
+                      <img className="user-icon-img" src="user-icon.png" alt="user-icon"></img>
+                      {window.localStorage.getItem('fas-user')}
+                        </div>
+                        }
+        <div className={classes.root}>
       <div>
         {openRegistration && <RegistrationModal 
             onClose={handleRegistrationClose} 
@@ -104,7 +126,8 @@ const Menu = () => {
         {openLogin && <LoginModal 
             onClose={handleLoginClose} 
             open={openLogin} 
-            details={registrationDetails} />}
+            details={registrationDetails}
+            onLogin={setIsLoggedIn} />}
         <Button
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
@@ -123,16 +146,19 @@ const Menu = () => {
               <Paper className={classes.paper}>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem className={classes.menuitem} onClick={(event) => {
+                    {!isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
                         handleClose(event)
                         handleClickRegistrationOpen()
-                    }}>Registration</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={(event) => {
+                    }}>Registration</MenuItem>}
+
+                    {!isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
                         handleClose(event)
                         handleClickLoginOpen()
-                    }}>Login</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>
+                    }}>Login</MenuItem>}
+
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClickLogout}>Logout</MenuItem>}
                     <MenuItem className={classes.menuitem} onClick={handleClose}>About</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
@@ -142,6 +168,8 @@ const Menu = () => {
         </Popper>
       </div>
     </div>
+    </React.Fragment>
+
   );
 }
 
