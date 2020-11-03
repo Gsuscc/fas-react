@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexWrap: 'nowrap',
       alignItems: 'center',
-      fontSize: '20px'
+      fontSize: '20px',
+      color: '#cacfeb'
   }
 
 }));
@@ -63,6 +64,13 @@ const Menu = () => {
   const handleClickLoginOpen = () => {
     setOpenLogin(true);
   };
+
+  const handleClickLogout = (event) =>  {
+    setIsLoggedIn(false)
+    window.localStorage.removeItem('fas-token')
+    window.localStorage.removeItem('fas-user')
+    handleClose(event)
+  }
 
   const handleLoginClose = () => {
     setRegistrationDetails({
@@ -138,16 +146,19 @@ const Menu = () => {
               <Paper className={classes.paper}>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem className={classes.menuitem} onClick={(event) => {
+                    {!isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
                         handleClose(event)
                         handleClickRegistrationOpen()
-                    }}>Registration</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={(event) => {
+                    }}>Registration</MenuItem>}
+
+                    {!isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
                         handleClose(event)
                         handleClickLoginOpen()
-                    }}>Login</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>
+                    }}>Login</MenuItem>}
+
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClickLogout}>Logout</MenuItem>}
                     <MenuItem className={classes.menuitem} onClick={handleClose}>About</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
