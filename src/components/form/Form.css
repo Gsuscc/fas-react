@@ -13,6 +13,12 @@
   margin-right: auto;
   margin-top: 85px;
   margin-bottom: 30px;
+  animation: box-highlight 2s ease-in-out;
+}
+@keyframes box-highlight {
+  50% {
+    box-shadow: 10px 20px 30px black;
+  }
 }
 
 .search-button {

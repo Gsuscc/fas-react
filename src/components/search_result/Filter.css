@@ -24,7 +24,7 @@
   padding: 5px;
 }
 .filters {
-  animation: fade-filter 4s linear;
+  animation: fade-filter 6s linear;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -37,12 +37,12 @@
 @keyframes fade-filter {
   from {
     max-height: 0vh;
-    min-width: 0px;
+    /* min-width: 0px; */
     /* opacity: 0; */
   }
   to {
     max-height: 550vh;
-    min-width: 1000px;
+    /* min-width: 1000px; */
     /* transform: translateY(0); */
 
     /* opacity: 1; */
