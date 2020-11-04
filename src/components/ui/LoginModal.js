@@ -49,8 +49,8 @@ export default function LoginModal(props) {
         username: username,
         password: password
       }).then((response)=>{
-        window.localStorage.setItem("fas-token", response.data.token)
-        window.localStorage.setItem("fas-user", response.data.username)
+        window.sessionStorage.setItem("fas-token", response.data.token)
+        window.sessionStorage.setItem("fas-user", response.data.username)
         onLogin(true)
         onClose()
       }).catch((err) => {

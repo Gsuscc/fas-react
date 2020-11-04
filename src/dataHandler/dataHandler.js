@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default function flightFetch(url, callback, errorPopup) {
-  const token = window.localStorage.getItem("fas-token");
+  const token = window.sessionStorage.getItem("fas-token");
   const config = token ? {  headers: {
     'Authorization': `Bearer ${token}` 
   }} : {}

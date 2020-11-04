@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import RegistrationModal from './ui/RegistrationModal'
 import LoginModal from './ui/LoginModal';
 import { UserState } from '../context/UserContext';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +55,7 @@ const Menu = () => {
     setLoginDetails 
   } = React.useContext(UserState);
   const [openRegistration, setOpenRegistration] = React.useState(false);
+  const history = useHistory();
 
   const handleClickRegistrationOpen = () => {
     setOpenRegistration(true);
@@ -69,8 +71,8 @@ const Menu = () => {
 
   const handleClickLogout = (event) =>  {
     setIsLoggedIn(false)
-    window.localStorage.removeItem('fas-token')
-    window.localStorage.removeItem('fas-user')
+    window.sessionStorage.removeItem('fas-token')
+    window.sessionStorage.removeItem('fas-user')
     handleClose(event)
   }
 
@@ -115,7 +117,7 @@ const Menu = () => {
   <React.Fragment>
     {isLoggedIn && <div className={classes.loggedIn}>
                       <img className="user-icon-img" src="user-icon.png" alt="user-icon"></img>
-                      {window.localStorage.getItem('fas-user')}
+                      {window.sessionStorage.getItem('fas-user')}
                         </div>
                         }
         <div className={classes.root}>
@@ -158,7 +160,11 @@ const Menu = () => {
                         handleClickLoginOpen()
                     }}>Login</MenuItem>}
 
-                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My flights</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
+                      handleClose(event)
+                      history.push("/myflights");
+                    }}>My flights</MenuItem>}
+
                     {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>}
                     {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClickLogout}>Logout</MenuItem>}
                     <MenuItem className={classes.menuitem} onClick={handleClose}>About</MenuItem>
