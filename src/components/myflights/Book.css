@@ -1,0 +1,27 @@
+.book-container {
+  background-color: #ffffffaa;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.book-id {
+  width: 200px;
+}
+
+.book-when {
+  width: 200px;
+}
+
+.book-between {
+  width: 200px;
+}
+
+.book-passengers {
+  width: 200px;
+}

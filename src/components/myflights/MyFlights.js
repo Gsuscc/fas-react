@@ -1,23 +1,23 @@
 import React from 'react'
 import { ErrorState } from "../../context/ErrorContext";
 import flightFetch from '../../dataHandler/dataHandler'
-import Ticket from './Ticket';
+import Book from './Book';
 import './MyFlights.css'
 
 export default function MyFlights() {
 
   const [isLoading, setIsLoading] = React.useState(true);
-  const [tickets, setTickets] = React.useState([]);
+  const [books, setBooks] = React.useState([]);
   const { setError } = React.useContext(ErrorState);
   
 
   React.useEffect(() => {
-    flightFetch('http://localhost:8080/favourite/flight', fillTickets, (error) => setError(error))  
+    flightFetch('http://localhost:8080/favourite/flight', fillBooks, (error) => setError(error))  
   }, [setError])
 
-  const fillTickets = (data) => {
+  const fillBooks = (data) => {
     console.log(data)
-    setTickets(data)
+    setBooks(data)
     setIsLoading(false)
   }
 
@@ -25,8 +25,8 @@ export default function MyFlights() {
     <div className="myflights-container">
       {isLoading && "Loading"}
       {!isLoading &&
-          <div className="tickets-container">
-            {tickets.map(ticket => <Ticket ticket={ticket} />)}
+          <div className="books-container">
+            {books.map(book => <Book book={book} />)}
           </div>
       }
     </div>
