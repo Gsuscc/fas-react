@@ -49,3 +49,8 @@
   color: white;
   font-weight: bold;
 }
+.tickets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

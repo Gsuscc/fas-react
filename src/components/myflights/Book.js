@@ -27,7 +27,9 @@ export default function Book(props) {
             {props.book.passengers}
         </div>
       </div>
+      <div className="tickets-container">
       {isTicketsOpen && props.book.tickets.map((ticket, index) => <Ticket ticket={ticket} delay={index * 200} />)}
+      </div>
     </React.Fragment>
 
   )
