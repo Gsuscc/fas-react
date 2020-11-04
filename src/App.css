@@ -80,7 +80,8 @@ ul.topnav li.right {
   font-style: italic;
   text-align: center;
   font-size: 28px;
-  font-family: emoji;
+  font-family: revert;
+  font-weight: 500;
   line-height: 38px;
 }
 
@@ -89,7 +90,8 @@ ul.topnav li.right {
   font-style: italic;
   text-align: center;
   font-size: 25px;
-  font-family: emoji;
+  font-family: revert;
+  font-weight: 500;
   line-height: 38px;
 }
 
