@@ -2,6 +2,7 @@ import React from 'react'
 import { ErrorState } from "../../context/ErrorContext";
 import flightFetch from '../../dataHandler/dataHandler'
 import Book from './Book';
+import BookHeader from './BookHeader';
 import './MyFlights.css'
 
 export default function MyFlights() {
@@ -23,12 +24,11 @@ export default function MyFlights() {
 
   return (
     <div className="myflights-container">
-      {isLoading && "Loading"}
-      {!isLoading &&
-          <div className="books-container">
-            {books.map(book => <Book book={book} />)}
-          </div>
-      }
+      <div className="books-container">
+        <BookHeader />
+          {isLoading && <div>"Loading..."</div>}
+          {!isLoading && books.map(book => <Book book={book} />)}
+      </div>
     </div>
   )
 }
