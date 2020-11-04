@@ -81,3 +81,12 @@
   width: 35px;
   height: 35px;
 }
+
+.person {
+  font-size: 18px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

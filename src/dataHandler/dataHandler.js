@@ -9,8 +9,6 @@ export default function flightFetch(url, callback, errorPopup) {
     .get(url, config)
     .then((response) => {
       let data = response.data;
-      if (response.data.status === "error")
-        errorPopup(response.data.errorMessage);
       callback(data);
     })
     .catch((err) => errorPopup(err.message));
