@@ -8,7 +8,8 @@ export const UserContext = (props) => {
   
   const [isLoggedIn, setIsLoggedIn] = useState(window.sessionStorage.getItem('fas-user') && window.sessionStorage.getItem('fas-token'));
   const [openLogin, setOpenLogin] = React.useState(false);
-  const [favouriteCities, setFavouriteCities] = React.useState();
+  const [favouriteCities, setFavouriteCities] = React.useState([]);
+  const [likedCityIds, setLikeCityIds] = React.useState([])
   const { setError } = React.useContext(ErrorState);
   const [loginDetails, setLoginDetails] = React.useState({
     message: null,
@@ -19,6 +20,12 @@ export const UserContext = (props) => {
     console.log(data)
     setFavouriteCities(data);
   }
+
+  React.useEffect(() => {
+    const cityIds = []
+    favouriteCities.map((city) => cityIds.push(city.city.id))
+    setLikeCityIds(cityIds)
+  }, [favouriteCities, setLikeCityIds])
 
   const refreshFavouriteCities = () => {
     flightFetch("http://localhost:8080/favourite/getCities", fillFavourites, (error) => setError(error))
@@ -42,7 +49,8 @@ export const UserContext = (props) => {
         loginDetails: loginDetails,
         setLoginDetails: setLoginDetails,
         favouriteCities: favouriteCities,
-        refreshFavouriteCities: refreshFavouriteCities
+        refreshFavouriteCities: refreshFavouriteCities,
+        likedCityIds: likedCityIds
       }}
     >
       {props.children}

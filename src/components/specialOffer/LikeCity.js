@@ -8,12 +8,10 @@ export default function LikeCity(props) {
 
   const [onMouseOver, setOnMouseOver] = React.useState(false)
   const { setError } = React.useContext(ErrorState);
-  const { favouriteCities, refreshFavouriteCities } = React.useContext(UserState)
+  const { likedCityIds, refreshFavouriteCities } = React.useContext(UserState)
 
-  const isLiked = () => {
-    // for (let favouriteCity of favouriteCities) {
-      
-    // }
+  const isLiked = (id) => {
+    return likedCityIds.includes(id)
   }
 
   const handleMouseOver = () => {
@@ -26,12 +24,21 @@ export default function LikeCity(props) {
 
   const handleClick = (event) => {
     event.stopPropagation();
-    flightFetch(`http://localhost:8080/favourite/addCity?id=${props.id}`, 
-      handleAddCity, 
-      (error) => setError(error))
+    if (isLiked(props.id)) {
+      flightFetch(`http://localhost:8080/favourite/removeCity?id=${props.id}`, 
+        handleModifyCity, 
+        (error) => setError(error))
+    } else {
+      flightFetch(`http://localhost:8080/favourite/addCity?id=${props.id}`, 
+        handleModifyCity, 
+        (error) => setError(error))
+    }
+    // const element = event.target
+    // element.className="growing"
+    // setTimeout(() => {element.className=""}, 300)
   }
 
-  const handleAddCity = (data) => {
+  const handleModifyCity = (data) => {
     refreshFavouriteCities()
   }
 
@@ -51,7 +58,13 @@ export default function LikeCity(props) {
           src="/liketo.png"
           alt="liketo"
           width="30px"
-          className={onMouseOver ? "hidden" : "visible"}>
+          className={!isLiked(props.id) && !onMouseOver ? "visible" : "hidden"}>
+      </img>
+      <img
+          src="/liked.png"
+          alt="liked"
+          width="30px"
+          className={isLiked(props.id) && !onMouseOver ? "visible" : "hidden"}>
       </img>
     </div>
 
