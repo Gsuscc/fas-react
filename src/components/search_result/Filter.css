@@ -34,6 +34,7 @@
   width: 30px;
   height: 30px;
 }
+
 @keyframes fade-filter {
   from {
     max-height: 0vh;

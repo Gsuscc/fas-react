@@ -8,13 +8,15 @@
   /* border-right: 3px dashed #505050; */
   height: 200px;
   width: 450px;
+  background-image: url("/watermark.jpg");
   background-color: floralwhite;
   border-radius: 10px;
 }
 .ticket-right-side {
   height: 200px;
   width: 150px;
-  background-color: floralwhite;
+  background-image: url("/watermark.jpg");
+  /* background-color: floralwhite; */
   border-radius: 10px;
 }
 
