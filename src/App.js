@@ -9,6 +9,7 @@ import { ErrorState } from "./context/ErrorContext";
 import ErrorModal from "./components/ui/ErrorModal";
 import ResultPage from "./components/search_result/ResultPage";
 import MyFlights from "./components/myflights/MyFlights";
+import MyCities from "./components/myCities/MyCities"
 
 function App() {
   const { error, clearError } = useContext(ErrorState);
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/myflights">
               <MyFlights />
+            </Route>
+            <Route path="/mycities">
+              <MyCities />
             </Route>
           </Switch>
           <Footer />

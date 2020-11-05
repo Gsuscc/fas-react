@@ -165,7 +165,10 @@ const Menu = () => {
                       history.push("/myflights");
                     }}>My flights</MenuItem>}
 
-                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClose}>My cities</MenuItem>}
+                    {isLoggedIn && <MenuItem className={classes.menuitem} onClick={(event) => {
+                        handleClose(event)
+                        history.push("/myCities")
+                    }}>My cities</MenuItem>}
                     {isLoggedIn && <MenuItem className={classes.menuitem} onClick={handleClickLogout}>Logout</MenuItem>}
                     <MenuItem className={classes.menuitem} onClick={handleClose}>About</MenuItem>
                   </MenuList>

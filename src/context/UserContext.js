@@ -27,9 +27,9 @@ export const UserContext = (props) => {
     setLikeCityIds(cityIds)
   }, [favouriteCities, setLikeCityIds])
 
-  const refreshFavouriteCities = () => {
+  const refreshFavouriteCities = useCallback(() => {
     flightFetch("http://localhost:8080/favourite/getCities", fillFavourites, (error) => setError(error))
-  }
+  })
 
   React.useEffect(() => {
     if (isLoggedIn) {
@@ -37,6 +37,7 @@ export const UserContext = (props) => {
     } else {
       setFavouriteCities([])
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn, setError])
 
   return (

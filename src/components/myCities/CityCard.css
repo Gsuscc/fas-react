@@ -1,0 +1,50 @@
+.city-card-root {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  width: 316px;
+  height: 440px;
+  border-radius: 20px;
+  background-color: antiquewhite;
+}
+
+.city-card-root:hover {
+  box-shadow: 0 13px 50px 0 rgb(255 255 255);
+}
+
+.city-name {
+  padding: 2px 16px;
+  font-size: 42px;
+  text-align: center;
+  font-family: "pageTitle";
+  margin-top: 11px;
+}
+
+.city-country {
+  text-align: center;
+  font-family: cursive;
+  margin-top: 23px;
+  font-size: 31px;
+}
+
+.city-card-img {
+  border-top-left-radius: 20px;
+  width: 316px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+  height: 237px;
+}
+
+.city-info-container {
+  padding: 2px 16px;
+}
+.delete-icon-img {
+  max-width: 58px;
+}
+
+.card-control-panel {
+  display: inline-flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 316px;
+}
