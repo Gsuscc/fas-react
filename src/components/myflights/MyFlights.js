@@ -17,7 +17,6 @@ export default function MyFlights() {
   }, [setError])
 
   const fillBooks = (data) => {
-    console.log(data)
     setBooks(data)
     setIsLoading(false)
   }
