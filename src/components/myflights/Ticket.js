@@ -5,15 +5,12 @@ import Barcode from 'react-barcode';
 
 export default function Ticket(props) {
   const [isReady, setIsReady] = React.useState(false)
-  console.log(props)
 
   React.useEffect(() => {
-    console.log(props.delay)
     setTimeout(setToReady, props.delay)
   }, [props.delay])
 
   const setToReady = () => {
-    console.log("ott")
     setIsReady(true)
   }
 

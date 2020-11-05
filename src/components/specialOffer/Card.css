@@ -23,6 +23,13 @@
   font-size: 25px;
   -webkit-text-stroke: 1px rebeccapurple;
 }
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
 .centered {
   position: absolute;
   top: 50%;

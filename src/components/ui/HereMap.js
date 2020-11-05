@@ -26,8 +26,6 @@ const HereMap = (props) => {
   const start = props.start;
   const end = props.end;
 
-  console.log(start)
-  console.log(end)
   React.useLayoutEffect(() => {
 
     if (!mapRef.current) return;
@@ -97,7 +95,7 @@ const HereMap = (props) => {
       startCoord = {lat: 0, lng: 0},
       endCoord = {lat: 1, lng: 1},
       durationMs = 200,
-      onStep = console.log,
+      onStep = () => {},
       onComplete = function() {},
     ) => {
       let raf = window.requestAnimationFrame || function(f) {window.setTimeout(f, 16)}
