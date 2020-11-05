@@ -26,7 +26,7 @@ export default function Ticket(props) {
             <div className="ticket-left-side">
               <div className="ticket-header-left">
                 <img src={props.ticket.flight.airline.logo} alt="airline-logo" width="30px"></img>
-                {props.ticket.flight.airline.name.toUpperCase()}
+                <div className="ticket-header-airline">{props.ticket.flight.airline.name.toUpperCase()}</div>
               </div>
               <div className="ticket-body-left">
                 <div>FROM:</div>

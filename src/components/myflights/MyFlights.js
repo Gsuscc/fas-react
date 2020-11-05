@@ -22,6 +22,8 @@ export default function MyFlights() {
     setIsLoading(false)
   }
 
+  
+
   return (
     <div className="myflights-container">
       <div className="books-container">
