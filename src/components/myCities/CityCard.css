@@ -5,6 +5,7 @@
   height: 440px;
   border-radius: 20px;
   background-color: antiquewhite;
+  margin: 10px;
 }
 
 .city-card-root:hover {

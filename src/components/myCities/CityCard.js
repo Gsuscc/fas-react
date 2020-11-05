@@ -13,7 +13,7 @@ import { UserState } from '../../context/UserContext';
 export default function CityCard(props) {
     console.log(props)
     const [isChecked, setIsChecked ] = useState(props.city.notification);
-    const { favouriteCities, refreshFavouriteCities } = React.useContext(UserState)
+    const { refreshFavouriteCities } = React.useContext(UserState)
     const { setError } = React.useContext(ErrorState);
 
 
@@ -28,8 +28,11 @@ export default function CityCard(props) {
       })((props) => <Checkbox color="default" {...props} />);
 
     const handleClick = (event) => {
-
+      flightFetch(`http://localhost:8080/favourite/removeCity?id=${props.city.city.id}`, 
+        refreshFavouriteCities, 
+        (error) => setError(error))
     }
+
     const handleChecked = () => {
         setIsChecked(!isChecked)
     }
@@ -42,7 +45,7 @@ export default function CityCard(props) {
     }, [isChecked,  setError])
     
     return (
-    <div className="city-card-root" onClick={handleClick}>
+    <div className="city-card-root">
       <img src={props.city.city.cityImage} className="city-card-img" alt={props.city.city}></img>
       <div className="city-info-container">
             <div className="city-name">{props.city.city.cityName}</div>
