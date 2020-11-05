@@ -13,3 +13,7 @@
   font-family: fantasy;
   color: #b5b0d2;
 }
+
+.empty-container {
+  display: flex;
+}
