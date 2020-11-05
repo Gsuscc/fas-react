@@ -6,7 +6,6 @@ import { UserState } from "../../context/UserContext";
 import LikeCity from "./LikeCity";
 
 export default function Card(props) {
-  console.log(props)
   const { cityId, pictureUrl, year, month, day, city, country, price } = props.card;
   const history = useHistory();
   const { general } = useContext(GeneralState);

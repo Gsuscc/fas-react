@@ -1,5 +1,6 @@
 import React from 'react'
 import { ErrorState } from '../../context/ErrorContext';
+import { UserState } from '../../context/UserContext';
 import flightFetch from '../../dataHandler/dataHandler'
 import "./LikeCity.css"
 
@@ -7,6 +8,13 @@ export default function LikeCity(props) {
 
   const [onMouseOver, setOnMouseOver] = React.useState(false)
   const { setError } = React.useContext(ErrorState);
+  const { favouriteCities, refreshFavouriteCities } = React.useContext(UserState)
+
+  const isLiked = () => {
+    // for (let favouriteCity of favouriteCities) {
+      
+    // }
+  }
 
   const handleMouseOver = () => {
     setOnMouseOver(true)
@@ -24,8 +32,7 @@ export default function LikeCity(props) {
   }
 
   const handleAddCity = (data) => {
-    console.log(data)
-    //todo
+    refreshFavouriteCities()
   }
 
   return (
