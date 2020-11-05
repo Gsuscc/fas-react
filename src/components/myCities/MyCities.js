@@ -15,7 +15,7 @@ export default function MyCities() {
         <div>
             <div className="my-cities-title"><h2>Your favourite destinations</h2></div>
             <div className="favourite-cities-container">
-                {favouriteCities.map((city => <CityCard city={city.city}/>))}
+                {favouriteCities.map((city => <CityCard city={city}/>))}
             </div>
         </div>
     )
