@@ -1,0 +1,11 @@
+.myflights-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 20px;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

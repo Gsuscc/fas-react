@@ -1,0 +1,56 @@
+.book-container {
+  background-color: #ffffffaa;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-id {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.book-when {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.book-between {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.book-passengers {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.book-header {
+  background-color: rgba(128, 0, 128, 0.781);
+  color: white;
+  font-weight: bold;
+}
+.tickets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

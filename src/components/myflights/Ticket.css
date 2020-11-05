@@ -1,0 +1,80 @@
+.ticket-container {
+  border-radius: 10px;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+}
+.ticket-left-side {
+  /* border-right: 3px dashed #505050; */
+  height: 200px;
+  width: 450px;
+  background-color: floralwhite;
+  border-radius: 10px;
+}
+.ticket-right-side {
+  height: 200px;
+  width: 150px;
+  background-color: floralwhite;
+  border-radius: 10px;
+}
+
+.ticket-header-right {
+  height: 50px;
+  background-color: rgba(44, 183, 248, 0.767);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-family: system-ui;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ticket-header-left {
+  height: 50px;
+  background-color: rgba(44, 183, 248, 0.767);
+  border-top-right-radius: 9px;
+  border-top-left-radius: 10px;
+  font-family: system-ui;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: 25px;
+}
+
+.ticket-body-right {
+  margin: 4px 3px 0px 2px;
+  display: grid;
+  grid-template-columns: 36% 64%;
+  grid-gap: 5px 0px;
+}
+.boarding-ticket-field {
+  background-color: #80808075;
+  font-weight: 500;
+  text-align: center;
+  font-size: 15px;
+}
+
+.ticket-body-left {
+  display: grid;
+  grid-template-columns: 26% 74%;
+  margin: 4px 2px 0px 3px;
+  grid-gap: 19px 0px;
+}
+.barcode {
+  width: 450px;
+  text-align: center;
+  margin-top: -12px;
+}
+
+.perforation {
+  width: 0px;
+  height: 180px;
+  border-right: 3px dashed #505050;
+  background-color: white;
+}

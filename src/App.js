@@ -8,6 +8,7 @@ import { GeneralContext } from "./context/SearchGeneral";
 import { ErrorState } from "./context/ErrorContext";
 import ErrorModal from "./components/ui/ErrorModal";
 import ResultPage from "./components/search_result/ResultPage";
+import MyFlights from "./components/myflights/MyFlights";
 
 function App() {
   const { error, clearError } = useContext(ErrorState);
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/search">
               <ResultPage />
+            </Route>
+            <Route path="/myflights">
+              <MyFlights />
             </Route>
           </Switch>
           <Footer />
