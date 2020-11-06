@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { UserState } from '../../context/UserContext';
 
 const useStyles = makeStyles((theme) => (
   {
@@ -43,6 +44,8 @@ export default function LoginModal(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
+  const {openRegistration,
+    setOpenRegistration} = React.useContext(UserState)
 
   const handleClick =()=> {
       axios.post('http://localhost:8080/auth/login',{
@@ -57,6 +60,12 @@ export default function LoginModal(props) {
         setErrorMessage(err.response.data)
       })
   }
+
+  const handleRegisterClick = () => {
+      setOpenRegistration(true)
+      onClose()
+  }
+
   useEffect(() => {
     setErrorMessage("")
   },[username, password])
@@ -90,6 +99,9 @@ export default function LoginModal(props) {
         <DialogActions>
           <Button onClick={onClose} color="primary">
             Cancel
+          </Button>
+          <Button onClick={handleRegisterClick} color="primary">
+            Register
           </Button>
           <Button onClick={handleClick} color="primary">
             Login

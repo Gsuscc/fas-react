@@ -10,6 +10,7 @@ export const UserContext = (props) => {
   const [openLogin, setOpenLogin] = React.useState(false);
   const [favouriteCities, setFavouriteCities] = React.useState([]);
   const [likedCityIds, setLikeCityIds] = React.useState([])
+  const [openRegistration, setOpenRegistration] = React.useState(false);
   const { setError } = React.useContext(ErrorState);
   const [loginDetails, setLoginDetails] = React.useState({
     message: null,
@@ -51,7 +52,9 @@ export const UserContext = (props) => {
         setLoginDetails: setLoginDetails,
         favouriteCities: favouriteCities,
         refreshFavouriteCities: refreshFavouriteCities,
-        likedCityIds: likedCityIds
+        likedCityIds: likedCityIds,
+        openRegistration: openRegistration,
+        setOpenRegistration: setOpenRegistration
       }}
     >
       {props.children}

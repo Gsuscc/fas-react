@@ -52,9 +52,10 @@ const Menu = () => {
     openLogin, 
     setOpenLogin, 
     loginDetails, 
-    setLoginDetails 
+    setLoginDetails ,
+    openRegistration,
+    setOpenRegistration
   } = React.useContext(UserState);
-  const [openRegistration, setOpenRegistration] = React.useState(false);
   const history = useHistory();
 
   const handleClickRegistrationOpen = () => {
