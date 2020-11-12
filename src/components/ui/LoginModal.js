@@ -68,7 +68,7 @@ export default function LoginModal(props) {
 
   useEffect(() => {
     setErrorMessage("")
-  },[username, password, details])
+  },[username, password])
 
   return (
     <div>

@@ -85,7 +85,6 @@ export default function RegistrationModal(props) {
                 onChange={(event) => setUsername(event.target.value)}
                 value={username}
                 autoComplete="off"
-
             />
             <TextField
                 margin="dense"
