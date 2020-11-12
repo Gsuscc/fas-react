@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
@@ -25,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
   button: {
     fontSize: '27px',
     color: '#abe390',
-    fontFamily: 'pageTitle'
+    fontFamily: 'pageGeneral'
   },
   menuitem: {
     fontSize: '22px',
     color: 'black',
-    fontFamily: 'pageTitle'
+    fontFamily: 'pageGeneral'
   },
   loggedIn: {
       display: 'flex',
@@ -133,15 +134,26 @@ const Menu = () => {
             open={openLogin} 
             details={loginDetails}
             onLogin={setIsLoggedIn} />}
-        <Button
+
+      <IconButton
+        ref={anchorRef}
+        aria-label="more"
+        aria-controls={open ? 'menu-list-grow' : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+        className={classes.button}
+      >
+        <MenuIcon fontSize="large" />
+      </IconButton>
+        {/* <Button
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
           className={classes.button}
         >
-          Menu
-        </Button>
+          Menu */}
+        {/* </Button> */}
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition placement="bottom-end" disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow

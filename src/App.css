@@ -2,11 +2,32 @@
   font-family: pageTitle;
   src: url(/Lobster_1.3.otf);
 }
+@font-face {
+  font-family: pageGeneral;
+  src: url(/AdventPro-Bold.ttf);
+}
+@font-face {
+  font-family: pageGeneral-light;
+  src: url(/AdventPro-Light.ttf);
+}
+
 body {
   background-image: url(/background.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+/* body::after {
+  content: "";
+  background: url(/background.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+} */
 
 ul.topnav {
   display: grid;
@@ -25,6 +46,7 @@ ul.topnav li div {
   /* color: #abe390 !important; */
   text-align: center;
   text-decoration: none;
+  margin-bottom: 2px;
 }
 
 ul.topnav li.right {
@@ -33,10 +55,11 @@ ul.topnav li.right {
   margin-right: 17px;
   font-size: 27px;
   color: #abe390 !important;
-  font-family: pageTitle;
+  font-family: pageGeneral;
   display: flex;
   justify-content: flex-end;
 }
+
 .link {
   cursor: pointer;
 }
@@ -64,7 +87,7 @@ ul.topnav li.right {
 #passenger-select-label {
   text-align: center;
   width: 90px;
-  font-family: pageTitle;
+  font-family: pageGeneral;
   font-size: 21px;
 }
 

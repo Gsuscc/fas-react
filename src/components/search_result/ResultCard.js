@@ -31,7 +31,7 @@ export default function ResultCard(props) {
             ? parseInt(
                 props.flight.ticket.touristPrice +
                   props.flight.returnTicket.touristPrice
-              )
+              ) * parseInt(props.flight.person)
             : parseInt(props.flight.ticket.touristPrice) * parseInt(props.flight.person)}
           $
           <div className="person">{props.flight.person} <img className="user-icon-img" src="user-icon.png" alt="user-icon"></img></div>

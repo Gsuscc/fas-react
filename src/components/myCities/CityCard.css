@@ -16,15 +16,16 @@
   padding: 2px 16px;
   font-size: 42px;
   text-align: center;
-  font-family: "pageTitle";
+  font-family: "pageGeneral";
   margin-top: 11px;
 }
 
 .city-country {
   text-align: center;
-  font-family: cursive;
-  margin-top: 23px;
+  font-family: "pageGeneral-light";
+  margin-top: 15px;
   font-size: 31px;
+  margin-bottom: 7px;
 }
 
 .city-card-img {
