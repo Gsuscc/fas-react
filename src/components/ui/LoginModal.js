@@ -68,7 +68,7 @@ export default function LoginModal(props) {
 
   useEffect(() => {
     setErrorMessage("")
-  },[username, password])
+  },[username, password, details])
 
   return (
     <div>
@@ -85,6 +85,7 @@ export default function LoginModal(props) {
                 type="username"
                 onChange={(event) => setUsername(event.target.value)}
                 value={details.username}
+                autoComplete="off"
             />
             <TextField
                 margin="dense"

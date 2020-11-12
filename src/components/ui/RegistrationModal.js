@@ -75,6 +75,7 @@ export default function RegistrationModal(props) {
                 type="email"
                 onChange={(event) => setEmail(event.target.value)}
                 value={email}
+                autoComplete="off"
             />
             <TextField
                 margin="dense"
@@ -83,6 +84,8 @@ export default function RegistrationModal(props) {
                 type="username"
                 onChange={(event) => setUsername(event.target.value)}
                 value={username}
+                autoComplete="off"
+
             />
             <TextField
                 margin="dense"
