@@ -10,3 +10,4 @@ Built with **React** functional components, thir-party libraries like **Material
   - Inculdes lots of CSS animations what supports multiple browsers, and so on.
 
 
+This project took 17days to produce, mainly 2 developers worked on it, however we started with a 4 members team.
